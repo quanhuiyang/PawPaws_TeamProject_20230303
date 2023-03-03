@@ -1,0 +1,29 @@
+.title {
+    margin-top: 1rem;
+    padding: 0 10px;
+    max-width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.stitle{
+    display: flex;
+    padding: 0 0 0 5px;
+}
+
+.stitle h2 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.L-btn{
+    margin: 0 5px 0 0;
+    border: 4px;
+    background: none;
+}
+.R-btn{
+    margin: 0 0 0 5px;
+    border: 4px;
+    background: none;
+}

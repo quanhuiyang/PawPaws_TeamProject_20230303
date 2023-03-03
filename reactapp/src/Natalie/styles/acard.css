@@ -1,0 +1,76 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #fff5ea;
+  box-sizing: border-box;
+}
+.wrap {
+  width: 80%;
+  margin: auto;
+}
+.card {
+  width: 100%;
+  margin: 1rem;
+  border-radius: 30px;
+  background-color: rgb(255, 255, 255);
+  border: #fff;
+}
+.card img {
+  width: 100%;
+  position: relative;
+  z-index: 1;
+  border-radius: 30px 30px 0 0;
+  overflow: hidden;
+  object-fit: cover;
+}
+.location {
+  padding: 0 10px 0 10px;
+  margin: 10px 5px 5px 5px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.city {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.city p {
+  margin: 1px;
+  overflow: hidden;
+  font-size: medium;
+}
+
+.btn {
+  padding: 5px 12px 5px 12px;
+  border: 5px #8dd9ce;
+  border-radius: 15px;
+  background-color: #8dd9ce;
+  font-weight: 600;
+  color: #fff;
+}
+
+.heart {
+  color: rgb(183, 183, 183);
+  position: absolute;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  top: 20px;
+  right: 20px;
+  z-index: 5;
+}
+
+@media only screen and (max-width: 768px) {
+  .card {
+    flex-wrap: wrap;
+  }
+  .splide__slide {
+    flex-basis: 100%;
+  }
+}
