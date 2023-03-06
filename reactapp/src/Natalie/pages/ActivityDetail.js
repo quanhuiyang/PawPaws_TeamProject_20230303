@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import Info from '../components/Info'
 import Infocontain from '../components/Infocontain'
 
 function ActivityDetail() {
+  const [activityDetail, setActivity] = useState([])
   return (
     <>
       <div className="wrap">

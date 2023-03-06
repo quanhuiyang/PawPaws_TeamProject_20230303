@@ -15,7 +15,7 @@ function Acard(props) {
   const { activity } = props
 
   const jump = () => {
-    navigate('/activity/detail')
+    navigate('/activity/detail/:activity_id')
   }
 
   return (
@@ -41,7 +41,7 @@ function Acard(props) {
                   src={
                     'http://localhost:3001/images/Natalie_img/' + item.picture
                   }
-                  alt="{item.picture}"
+                  alt={item.picture}
                 />
                 <div className="location">
                   <div className="city">

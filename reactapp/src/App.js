@@ -80,6 +80,10 @@ function App() {
                 {/* http://localhost:3000/activity */}
                 <Route path="/activity" element={<Activity />} />
                 <Route path="/activity/detail" element={<ActivityDetail />} />
+                <Route
+                  path="/activity/detail/:activity_id"
+                  element={<ActivityDetail />}
+                />
                 <Route path="/activity/signup" element={<ActivitySignUp />} />
 
                 {/* ** Abby ** */}

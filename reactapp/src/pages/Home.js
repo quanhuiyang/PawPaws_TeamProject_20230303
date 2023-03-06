@@ -1,8 +1,12 @@
 import React from 'react'
+import styled from 'styled-components'
+import Mainphoto from '../Elena/components/mainphoto/Mainphoto'
 
-function Home(){
+function Home() {
   return (
-    <h2>Home Page</h2>
+    <>
+      <Mainphoto />
+    </>
   )
 }
 

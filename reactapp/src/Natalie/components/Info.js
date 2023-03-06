@@ -1,7 +1,10 @@
-import React from 'react'
+import React, { navigate } from 'react'
 import styled from 'styled-components'
 
 function Info() {
+  const jump = () => {
+    navigate('/activity/signup')
+  }
   return (
     <Infocard>
       <Infoheader>
@@ -12,7 +15,7 @@ function Info() {
         <p>2021-01-22(五)~2021-01-25(一)</p>
         <p>成功大學中正堂體育館（台南市東區大學路1號）</p>
         <Btn>
-          <button>我要報名</button>
+          <button onClick={jump}>我要報名</button>
           <button>我要收藏</button>
         </Btn>
       </Infomation>

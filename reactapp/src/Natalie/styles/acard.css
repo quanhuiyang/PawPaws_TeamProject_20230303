@@ -3,6 +3,7 @@ body {
   padding: 0;
   background-color: #fff5ea;
   box-sizing: border-box;
+  
 }
 .slidebox{
   margin-bottom: 40px;
@@ -44,6 +45,7 @@ body {
   margin: 1px;
   overflow: hidden;
   font-size: medium;
+  font-family: "Montserrat", sans-serif;
 }
 
 .btn {
@@ -52,6 +54,7 @@ body {
   border-radius: 15px;
   background-color: #8dd9ce;
   font-weight: 600;
+  font-family: "Montserrat", sans-serif;
   color: #fff;
 }
 

@@ -9,7 +9,7 @@ router.get('/', async (req, res) => {
   res.json(rows)
 })
 //選取某項活動
-router.get('/detail/:aid', async (req, res) => {
+router.get('/detail/:activity_id', async (req, res) => {
   const aid = req.params.aid
   const sql = 'SELECT * FROM `activity` WHERE `activity_id`=?'
   const [rows] = await db.query(sql, [aid])
