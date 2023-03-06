@@ -8,6 +8,7 @@ import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import md5 from 'md5'
 import Swal from 'sweetalert2'
+import AuthService from '../auth.service'
 
 function Register() {
   const navigate = useNavigate()
@@ -71,22 +72,34 @@ function Register() {
     const { email, password } = user
     const encryption = md5(password)
     if (email === '' || password === '') return
-    const response = await axios.post(
-      `${process.env.REACT_APP_API_URL}/members/register`,
-      {
-        email,
-        password: encryption,
-      }
-    )
+    const response = await AuthService.register({
+      email,
+      password: encryption,
+      name: '',
+    })
 
-    console.log('response', response)
-    // if (response.data.state) {
+    if (response.data.state) {
+      Swal.fire({
+        // position: 'top-end',
+        icon: 'success',
+        title: response.data.message,
+        showConfirmButton: false,
+        timer: 1500,
+      }).then(() => {
+        localStorage.setItem('email', email)
+        // localStorage.setItem('user', JSON.stringify(response.data.userInfo))
+        window.location = '/members'
+      })
+    } else {
+      Swal.fire({
+        title: response.data.message,
+        icon: 'error',
+        showConfirmButton: false,
+        timer: 1500,
+      })
+    }
 
-    //   localStorage.setItem("token", response.data.token);
-    alert('註冊成功')
-    window.location = '/login'
-    //   // setAlert({ state: true, message: response.data.message });
-    // }
+    // window.location = '/login'
   }
 
   // 表單有發生驗証錯誤時，會觸發此事件
@@ -120,10 +133,12 @@ function Register() {
         >
           <div className="form-area">
             <div className="form-header">
-              <button className="registerBtn member-button">註冊</button>
-              <button className="loginBtn member-button">
-                <Link to="/members">登入</Link>
+              <button type="button" className="registerBtn member-button">
+                註冊
               </button>
+              <Link to="/members">
+                <button className="loginBtn member-button">登入</button>
+              </Link>
             </div>
 
             <div className="form-body">
@@ -173,10 +188,10 @@ function Register() {
               </div>
             </div>
             <div className="form-submit-area">
-              <button type="reset" className="rewrite-btn member-button">
+              <button type="reset" className="rewrite-btn twoBtns">
                 重新填寫
               </button>
-              <button type="submit" className="join-btn member-button">
+              <button type="submit" className="join-btn twoBtns">
                 加入會員
               </button>
             </div>
@@ -186,7 +201,7 @@ function Register() {
                 label="Sign up with Google"
                 style={{ width: 200 }}
                 onClick={() => {
-                  console.log('Google button clicked')
+                  // console.log('Google button clicked')
                 }}
               />
             </div>

@@ -1,28 +1,38 @@
 :root {
-  --main-color: #8dd9ce;
+  --main-color: #8DD9CE;
   --title-gray: #868686;
-  --background-gray: #e2e2e2;
+  --background-gray: #E2E2E2;
 }
-* {
+*{
   margin: 0;
   box-sizing: border-box;
-  font-family: 'Times New Roman', Times, serif;
+  font-family: 'Noto Sans Arabic',sans-serif;
 }
-main {
-  background-color: #fff5ea;
+main{
+  background-color: #FFF5EA;
+}
+
+.abby *{
+  font-family: 'Noto Sans Arabic',sans-serif;
 }
 .error {
   font-size: 9px;
-  color: red;
+  color:red;
 }
-.member-button {
+.member-button{
   border: none;
-  padding: 10px;
+  padding: 10px 0;
 }
-.group-password {
+
+.twoBtns{
+  border: none;
+  
+}
+
+.group-password{
   position: relative;
 }
-.show-password-icon {
+.show-password-icon{
   position: absolute;
   display: flex;
   right: 15px;
@@ -30,171 +40,200 @@ main {
   cursor: pointer;
 }
 
-form input {
+form input{
   flex-grow: 1;
   width: 100%;
   border: none;
   margin: 8px 0;
   padding: 10px;
-  border: 1px solid #8dd9ce;
+  border: 1px solid #8DD9CE;
   border-radius: 5px;
   letter-spacing: 0.5px;
   font-size: 13px;
 }
 
-.registerBtn {
+.registerBtn{
   color: #fff;
-  background: #8dd9ce;
-  a {
+  background: #8DD9CE;
+  a{
     color: var(--title-gray);
     text-decoration: none;
   }
 }
 
-.loginBtn {
-  background: #e2e2e2;
-  a {
-    text-decoration: none;
-    color: #868686;
-  }
+.loginBtn{
+  background: #E2E2E2;
+  a{
+  text-decoration: none;
+  color: #868686;
 }
-.form-body {
+}
+.form-body{
   padding: 25px 20px 15px 20px;
 }
-.form-area {
+.form-area{
   width: 90%;
   margin: auto;
-  border: 1px solid #8dd9ce;
+  border: 1px solid #8DD9CE;
   border-radius: 10px 10px 0px 0px;
   overflow: hidden;
   background: #fff;
   padding-bottom: 30px;
 }
-.form-area-edit {
+
+.form-area-edit{
   width: 90%;
   margin: auto;
-  border: 1px solid #8dd9ce;
+  border: 1px solid #8DD9CE;
   border-radius: 0px 10px 0px 0px;
   overflow: hidden;
   background: #fff;
   padding-bottom: 30px;
 }
 
-.form-header {
+.form-header{
   display: flex;
   margin: auto;
+  a{
+    flex: 1 0 0;
+    .loginBtn{
+      width: 100%;
+    }
+  }
+
 }
-.form-header button {
+.form-header button{
   flex: 1 1 0;
   font-size: 14px;
-  border: 1px solid #8dd9ce;
+  border: 1px solid #8DD9CE;
 }
-.container {
+.container{
   width: 100%;
   padding-top: 50px;
 }
-.form-submit-area {
-  text-align: center;
+.form-submit-area{
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 20px 0px 20px
+
 }
-.form-submit-area button {
+.form-submit-area button{
   padding: 8px 45px;
-  margin: 0px 10px 0px;
   border-radius: 5px;
+  width: 100%;
+  
 }
 .join-btn {
-  background: #8dd9ce;
+  background: #8DD9CE;
   color: #fff;
   font-size: 13px;
 }
-.rewrite-btn {
+.rewrite-btn{
   font-size: 13px;
 }
-.google-btn {
+.google-btn{
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 15px 0 0;
 }
 
-@media screen and (min-width: 768px) {
-  form input {
-    font-size: 16px;
-    margin: 10px 0px;
-  }
-  .form-header button {
-    font-size: 16px;
-  }
-  .form-area button {
-    font-size: 16px;
-  }
-  .form-area {
-    max-width: 600px;
-    margin: auto;
-    border: 1px solid #8dd9ce;
-    border-radius: 10px 10px 10px 10px;
-    overflow: hidden;
-    background: #fff;
-  }
-  .form-area-edit {
-    max-width: 600px;
-    margin: auto;
-    border: 1px solid #8dd9ce;
-    border-radius: 0px 10px 10px 10px;
-    overflow: hidden;
-    background: #fff;
-    padding-bottom: 30px;
-  }
 
-  .form-submit-area button {
-    padding: 10px 40px;
-    margin: 0px 20px 0px;
+@media screen and (min-width:768px){
+  form input{
+  font-size: 16px;
+  margin: 10px 0px;
   }
-
-  .show-password-icon {
-    top: 20px;
+  .form-header button{
+  font-size: 16px;
+}
+  .form-area button{
+  font-size: 16px;
   }
+  .form-area{
+  max-width: 600px; 
+  margin: auto;
+  border: 1px solid #8DD9CE;
+  border-radius: 10px 10px 10px 10px;
+  overflow: hidden;
+  background: #fff;
+}
+.form-area-edit{
+  max-width: 600px; 
+  margin: auto;
+  border: 1px solid #8DD9CE;
+  border-radius: 0px 10px 10px 10px;
+  overflow: hidden;
+  background: #fff;
+  padding-bottom: 30px;
+  
 }
 
-//login page
-.loginArea {
-  display: flex;
-  justify-content: center;
+.form-submit-area button{
+  padding: 10px 40px;
+  margin: 0px 0px 0px;
 }
-.top-login-btn {
-  background: #8dd9ce;
-  color: #fff;
-  text-decoration: none;
+
+.show-password-icon{
+  top: 20px;
 }
-.top-register-btn {
+
+}
+
+  //login page
+  .loginArea{
+    display: flex;
+    justify-content: center;
+    padding: 0 80px;
+  }
+  .top-login-btn{
+    background: #8DD9CE;
+    color: #fff;
+    text-decoration: none;
+  }
+  .top-register-btn{
   color: var(--title-gray);
-  background: var(--background-gray);
-  a {
+  background:var(--background-gray);
+  a{
     color: #868686;
     text-decoration: none;
   }
 }
-.login-btn {
-  background: #8dd9ce;
-  color: #fff;
-  padding: 8px 108px;
-  border-radius: 5px;
-  font-size: 14px;
-}
-.forgetpwd-btn {
-  padding-top: 5px;
-  font-size: 13px;
-  a {
-    color: #2978c0;
-    text-decoration: none;
-  }
-}
+  .login-btn{
+    background: #8DD9CE;
+    color: #fff;
+    padding: 8px 190px;
+    border-radius: 5px;
+    font-size: 14px;
+    width: 100%;
 
-@media screen and (min-width: 768px) {
-  .forgetpwd-btn {
-    padding-left: 15px;
-    font-size: 18px;
   }
-  .form-body {
-    padding: 30px 80px 15px 80px;
+  .forgetpwd-btn{
+    padding-top: 5px;
+    font-size: 13px;
+    a{
+    color: #2978C0;
+    text-decoration: none;
+  
+  }}
+
+  @media screen and (min-width:768px){
+    .forgetpwd-btn{
+      padding-left: 15px;
+      font-size: 18px;
+    }
+    .form-body{
+      padding: 30px 80px 15px 80px;
+    }
+
+    .form-submit-area{
+      padding-left: 80px;
+      padding-right: 80px;
+    }
+    button.twoBtns{
+      width: 46%;
+      padding-left: 0;
+      padding-right: 0;
+    }
   }
-}
+

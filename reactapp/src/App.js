@@ -22,6 +22,7 @@ import Register from './Abby/pages/Register'
 import NewPwd from './Abby/pages/NewPwd'
 import Order from './Abby/pages/Order'
 import MemberInfo from './Abby/pages/MemberInfo'
+import ForgetPwd from './Abby/pages/ForgetPwd'
 
 import React from 'react'
 import Header from './components/headers/Headers'
@@ -87,6 +88,7 @@ function App() {
                 <Route path="/Memberinfo" element={<MemberInfo />} />
                 <Route path="/NewPwd" element={<NewPwd />} />
                 <Route path="/Order" element={<Order />} />
+                <Route path="/ForgetPwd" element={<ForgetPwd />} />
 
                 {/* http://localhost:3000/shopcart */}
                 {/* <Route path="/shopcart" element={<shopcart />} /> */}
