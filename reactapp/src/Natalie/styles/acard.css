@@ -4,9 +4,13 @@ body {
   background-color: #fff5ea;
   box-sizing: border-box;
 }
+.slidebox{
+  margin-bottom: 40px;
+}
 .wrap {
   width: 80%;
   margin: auto;
+  max-width: 1232px;
 }
 .card {
   width: 100%;

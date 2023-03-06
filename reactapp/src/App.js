@@ -15,6 +15,7 @@ import HotelList from './Elena/pages/hotelList/HotelList'
 
 import Activity from './pages/Activity'
 import ActivityDetail from './Natalie/pages/ActivityDetail'
+import ActivitySignUp from './Natalie/pages/ActivitySignUp'
 
 import Members from './pages/Members'
 import Edit from './Abby/pages/Edit'
@@ -79,6 +80,7 @@ function App() {
                 {/* http://localhost:3000/activity */}
                 <Route path="/activity" element={<Activity />} />
                 <Route path="/activity/detail" element={<ActivityDetail />} />
+                <Route path="/activity/signup" element={<ActivitySignUp />} />
 
                 {/* ** Abby ** */}
                 {/* http://localhost:3000/members */}

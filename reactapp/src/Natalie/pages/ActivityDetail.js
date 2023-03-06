@@ -22,7 +22,7 @@ function ActivityDetail() {
 const Picture = styled.div`
   display: flex;
   justify-content: center;
-  margin: 0;
+  margin: 3rem auto;
   padding: 0;
   overflow: hidden;
   margin-bottom: 2rem;

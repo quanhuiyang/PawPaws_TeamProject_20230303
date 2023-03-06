@@ -1,5 +1,5 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react'
+import styled from 'styled-components'
 
 function Infocontain() {
   return (
@@ -24,35 +24,35 @@ function Infocontain() {
         </p>
       </Content>
     </Infocard>
-  );
+  )
 }
 const Infocard = styled.div`
-  height: fit-content;
   min-width: 65%;
+  height: fit-content;
   min-height: 500px;
   border-radius: 1rem;
-  margin: 1rem;
   background: #fff;
-`;
+`
 const Content = styled.div`
-  padding: 10px;
-`;
+  padding: 2rem;
+`
 const Header = styled.div`
   padding: 1rem;
   border-radius: 1rem 1rem 0 0;
   position: relative;
-  height: 15%;
+  height: 10%;
   width: 100%;
   background: #8dd9ce;
   h3 {
+    margin: 0;
     font-weight: 600;
     color: #fff;
     align-items: center;
   }
-`;
+`
 const Infomation = styled.div`
   padding: 1rem;
   text-align: center;
-`;
+`
 
-export default Infocontain;
+export default Infocontain
