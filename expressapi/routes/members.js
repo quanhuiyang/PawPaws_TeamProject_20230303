@@ -154,9 +154,9 @@ router.post('/forgetPassword', async function (req, res) {
     output.state = true
     if (row.password === 'googleAuth') {
       output.state = false
-      output.message = '此帳號為 GOOGLE 登入'
       output.error = 'googleAuth'
     }
+
     output.userInfo = row
 
     const token = jwt.sign(

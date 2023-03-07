@@ -2,7 +2,7 @@ import { useState, useRef } from 'react'
 import './members.scss'
 import { Link } from 'react-router-dom'
 import { ForgetPwdEmail } from '../components/ForgetPwdEmail'
-
+import Swal from 'sweetalert2'
 import emailjs from '@emailjs/browser'
 import AuthService from '../auth.service'
 
@@ -21,14 +21,17 @@ function ForgetPwd() {
   const sendEmail = async (e) => {
     e.preventDefault()
 
-    console.log('email', email)
     const response = await AuthService.forgetPassword({
       email: email,
     })
-    console.log(response)
 
     if (response.data.state) {
       setToken(response.data.token)
+      Swal.fire({
+        icon: 'success',
+        title: '已發送重設密碼信件至您的信箱!',
+        showConfirmButton: true,
+      })
 
       setTimeout(() => {
         emailjs
@@ -48,7 +51,12 @@ function ForgetPwd() {
           )
       }, 0)
     } else if (response.data.error === 'googleAuth') {
-      alert(response.data.message)
+      Swal.fire({
+        icon: 'warning',
+        title: '此帳號為 Google 登入',
+        showConfirmButton: false,
+        timer: 1500,
+      })
     }
   }
 

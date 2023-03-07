@@ -58,8 +58,7 @@ export default function Edit() {
         user = JSON.parse(local)
       }
     } catch (ex) {}
-    
-    
+
     const birthday = new Date(user.birthday)
     //城市與區域地址之間+逗號
     let addressAll = []
@@ -71,7 +70,6 @@ export default function Edit() {
       district === '區域' ? '' : district
     },${address3}`
 
-  
     let isSameData =
       user.name === userName &&
       user.mobile === mobile &&
@@ -86,7 +84,6 @@ export default function Edit() {
       address: fullAddress,
     }
 
-
     if (!isSameData) {
       const response = await axios.put(
         `${process.env.REACT_APP_API_URL}/members/update`,
@@ -94,7 +91,6 @@ export default function Edit() {
       )
 
       localStorage.setItem('user', JSON.stringify(data))
-
 
       //編輯成功
       if (response.data.state) {
@@ -191,6 +187,12 @@ export default function Edit() {
                 localStorage.removeItem('email')
                 localStorage.removeItem('googleAuth')
                 navigate('/members')
+                Swal.fire({
+                  icon: 'success',
+                  title: '登出成功!',
+                  showConfirmButton: false,
+                  timer: 1500,
+                })
               }}
             >
               會員登出

@@ -52,8 +52,6 @@ function Members() {
         token: localStorage.getItem('token'),
       })
       if (response.data.state) {
-        // alert('您已登入過')
-        // window.location = '/memberInfo'
         navigate('/memberInfo')
       }
     })()
@@ -81,7 +79,6 @@ function Members() {
 
     if (response.data.state) {
       Swal.fire({
-        // position: 'top-end',
         icon: 'success',
         title: '成功登入!',
         showConfirmButton: false,
@@ -90,7 +87,7 @@ function Members() {
         localStorage.setItem('email', response.data.userInfo.email)
         localStorage.setItem('user', JSON.stringify(response.data.userInfo))
         localStorage.setItem('token', response.data.token)
-        window.location = '/memberInfo'
+        navigate('/memberInfo')
       })
       //
     } else {
