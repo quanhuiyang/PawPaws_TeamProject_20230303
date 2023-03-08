@@ -3,10 +3,15 @@ body {
   padding: 0;
   background-color: #fff5ea;
   box-sizing: border-box;
+  
+}
+.slidebox{
+  margin-bottom: 40px;
 }
 .wrap {
   width: 80%;
   margin: auto;
+  max-width: 1232px;
 }
 .card {
   width: 100%;
@@ -40,6 +45,7 @@ body {
   margin: 1px;
   overflow: hidden;
   font-size: medium;
+  font-family: "Montserrat", sans-serif;
 }
 
 .btn {
@@ -48,10 +54,12 @@ body {
   border-radius: 15px;
   background-color: #8dd9ce;
   font-weight: 600;
+  font-family: "Montserrat", sans-serif;
   color: #fff;
 }
 
-.heart {
+.heart button{
+  border: none;
   color: rgb(183, 183, 183);
   position: absolute;
   background-color: #fff;
