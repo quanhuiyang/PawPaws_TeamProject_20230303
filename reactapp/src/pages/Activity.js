@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css'
-import '@fontsource/montserrat'
 import Arrowbtn from '../Natalie/components/Arrowbtn'
 import ImageSlider from '../Natalie/components/ImageSlider'
 import Acard from '../Natalie/components/Acard'

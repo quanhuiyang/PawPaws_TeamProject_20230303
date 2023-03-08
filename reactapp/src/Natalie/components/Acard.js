@@ -9,14 +9,14 @@ import { useNavigate } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 
 function Acard(props) {
-  const navigate = useNavigate()
+  // const navigate = useNavigate()
 
   //進行解構
   const { activity } = props
 
-  const jump = () => {
-    navigate('/activity/detail/:activity_id')
-  }
+  // const jump = () => {
+  //   navigate('/activity/detail/:activity_id')
+  // }
 
   return (
     <div>
@@ -48,9 +48,9 @@ function Acard(props) {
                     <LocationOnRoundedIcon />
                     <p>{item.location}</p>
                   </div>
-                  <button className="btn" onClick={jump}>
-                    我要報名
-                  </button>
+                  <Link to={`/activity/detail/${item.activity_id}`}>
+                    <button className="btn">我要報名</button>
+                  </Link>
                 </div>
               </div>
             </SplideSlide>

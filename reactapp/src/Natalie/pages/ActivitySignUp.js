@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 
 function ActivitySignUp() {
   return (
@@ -40,7 +41,9 @@ function ActivitySignUp() {
             <input type="text" placeholder="聯絡地址" />
           </InputBox>
           <Btn>
-            <button>送出</button>
+            <Link to="/activity/detail/:activity_id">
+              <button>送出</button>
+            </Link>
           </Btn>
         </Form>
       </SignupCard>

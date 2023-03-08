@@ -1,22 +1,29 @@
 import React, { navigate } from 'react'
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
+import Collectbtn from './Collectbtn'
+import 'datejs'
 
-function Info() {
-  const jump = () => {
-    navigate('/activity/signup')
-  }
+function Info(props) {
+  const { activityDetail } = props
+  const item = activityDetail[0]
   return (
     <Infocard>
       <Infoheader>
         <h3>活動資訊</h3>
       </Infoheader>
       <Infomation>
-        <h5>台南寵物展｜台南成大寵物展</h5>
-        <p>2021-01-22(五)~2021-01-25(一)</p>
-        <p>成功大學中正堂體育館（台南市東區大學路1號）</p>
+        <h5>{item.title}</h5>
+        <p>
+          {new Date(item.begindate).toString('yyyy-MM-dd')}~
+          {new Date(item.deadline).toString('yyyy-MM-dd')}
+        </p>
+        <p>{item.place}</p>
         <Btn>
-          <button onClick={jump}>我要報名</button>
-          <button>我要收藏</button>
+          <Link to="/activity/signup">
+            <button>我要報名</button>
+          </Link>
+          <Collectbtn />
         </Btn>
       </Infomation>
     </Infocard>
@@ -54,7 +61,6 @@ const Btn = styled.div`
   justify-content: center;
   flex-wrap: wrap;
   button {
-    max-width: 50%;
     padding: 1rem;
     margin: 1rem;
     border: 5px #8dd9ce;
