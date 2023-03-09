@@ -19,7 +19,7 @@ const HotelList = () => {
   const [openDate, setOpenDate] = useState(false)
   const [options, setOptions] = useState(d2)
 
-  const [hotel, setHotel] = useState([])
+  const [hotels, setHotel] = useState([])
   //不要讓getHotel()被重複渲染
   useEffect(() => {
     getHotel()
@@ -31,7 +31,7 @@ const HotelList = () => {
     })
       .then((r) => r.json())
       .then((rData) => {
-        console.log(rData)
+        // console.log(rData)
         setHotel(rData)
       })
   }
@@ -48,10 +48,10 @@ const HotelList = () => {
             </div>
             <div className="lsItem">
               <label>入住日期</label>
-              <span onClick={() => setOpenDate(!openDate)}>{`${format(
+              {/* <span onClick={() => setOpenDate(!openDate)}>{`${format(
                 date[0].startDate,
                 'MM/dd/yyyy'
-              )} to ${format(date[0].endDate, 'MM/dd/yyyy')}`}</span>
+              )} to ${format(date[0].endDate, 'MM/dd/yyyy')}`}</span> */}
               {openDate && (
                 <DateRange
                   onChange={(item) => setDate([item.selection])}
@@ -112,12 +112,9 @@ const HotelList = () => {
             <button>搜尋</button>
           </div>
           <div className="listResult">
-            <SearchItem hotel={hotel} id="1" />
-            <SearchItem hotel={hotel} id="2" />
-            <SearchItem hotel={hotel} />
-            <SearchItem hotel={hotel} />
-            <SearchItem hotel={hotel} />
-            <SearchItem hotel={hotel} />
+            {hotels.map((hotel) => (
+              <SearchItem hotel={hotel} key={hotel.h_id} />
+            ))}
           </div>
         </div>
       </div>
