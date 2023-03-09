@@ -16,6 +16,7 @@ function SearchItem(props) {
       />
       <div className="siDesc">
         <h1 className="siTitle">{hotel.h_name}</h1>
+        <span className="siCity">{hotel.h_city}</span>
         <span className="siDistance">離市中心{hotel.h_distance}m</span>
         <span className="siTaxi0p">免費機場接駁</span>
         <span className="siSubtitle">冷氣套房</span>
