@@ -3,7 +3,7 @@ import useFetch from '../../hooks/useFetch'
 
 const Featured = () => {
   const { data, loading, error } = useFetch(
-    '/hotels/countByCity?cities=台北,台中,高雄'
+    '/hotels/countByCity?cities=台北,南投,高雄'
   )
 
   return (
@@ -20,7 +20,6 @@ const Featured = () => {
             />
             <div className="featuredTitles">
               <h1>台北</h1>
-              <h2>{data[0]}間 飯店</h2>
             </div>
           </div>
 
@@ -31,8 +30,7 @@ const Featured = () => {
               className="featuredImg"
             />
             <div className="featuredTitles">
-              <h1>台中</h1>
-              <h2>{data[1]}間 飯店</h2>
+              <h1>南投</h1>
             </div>
           </div>
           <div className="featuredItem">
@@ -43,7 +41,6 @@ const Featured = () => {
             />
             <div className="featuredTitles">
               <h1>高雄</h1>
-              <h2>{data[2]}間 飯店</h2>
             </div>
           </div>
         </>

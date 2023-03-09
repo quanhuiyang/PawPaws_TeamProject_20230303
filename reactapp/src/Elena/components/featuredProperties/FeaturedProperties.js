@@ -1,3 +1,36 @@
+// import './featuredProperties.css'
+// import useFetch from '../../hooks/useFetch'
+
+// const FeaturedProperties = () => {
+//   const { data, loading, error } = useFetch('/hotels?featured=true&limit=4')
+
+//   return (
+//     <div className="fp">
+//       {loading ? (
+//         'Loading'
+//       ) : (
+//         <>
+//           {data.map((item) => (
+//             <div className="fpItem">
+//               <img src={item.photos[0]} alt="" className="fpImg" />
+//               <span className="fpName">{item.name}</span>
+//               <span className="fpCity">{item.city}</span>
+//               <span className="fpPrice"> NTD ${item.cheapestPrice}起</span>
+//               <div className="fpRating">
+//                 <button>{item.rating}</button>
+//                 <span>很棒</span>
+//               </div>
+//               }
+//             </div>
+//           ))}
+//         </>
+//       )}
+//     </div>
+//   )
+// }
+
+// export default FeaturedProperties
+
 import './featuredProperties.css'
 
 const FeaturedProperties = () => {

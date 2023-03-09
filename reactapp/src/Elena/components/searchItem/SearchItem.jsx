@@ -1,3 +1,49 @@
+// import './searchItem.css'
+// import { Link, useNavigate } from 'react-router-dom'
+
+// const SearchItem = ({ id = '999' }) => {
+//   const navigate = useNavigate()
+
+//   return (
+//     <div className="searchItem">
+//       <img src={item.photos[0]} alt="" className="siImg" />
+//       <div className="siDesc">
+//         <h1 className="siTitle">{item.name}</h1>
+//         <span className="siDistance">離市中心{item.distance}m</span>
+//         <span className="siTaxi0p">免費機場接駁</span>
+//         <span className="siSubtitle">冷氣套房</span>
+//         <span className="siFeatures">一大床 • 獨立衛浴 • minibar</span>
+//         <span className="siCancelOp">免費取消</span>
+//         <span className="siCance10pSubtitle">您可以稍後取消,請放心預訂！</span>
+//       </div>
+//       <div className="siDetails">
+//         {item.rating && (
+//           <div className="siRating">
+//             <span>超讚</span>
+//             <button>{item.rating}</button>
+//           </div>
+//         )}
+//         <div className="siDetailTexts">
+//           <span className="siPrice">NTD${item.cheapestPrice}</span>
+//           <span className="siTaxOp">含稅價</span>
+//           <Link to={`/hotels/${item._h_id}`}>
+//             <button
+//               className="siCheckButton"
+//               onClick={() => {
+//                 navigate('/hotel/hoteldetail/' + id)
+//               }}
+//             >
+//               預訂
+//             </button>
+//           </Link>
+//         </div>
+//       </div>
+//     </div>
+//   )
+// }
+
+// export default SearchItem
+
 import './searchItem.css'
 import { Link, useNavigate } from 'react-router-dom'
 

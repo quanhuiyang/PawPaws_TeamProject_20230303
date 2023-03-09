@@ -125,7 +125,7 @@ const HotelDetail = () => {
           </div>
         )}
         <div className="hotelWrapper">
-          <button className="bookNow">保留或預訂</button>
+          <button className="bookNow">預訂</button>
           <h1 className="hotelTitle">{title}</h1>
           <div className="hotelAddress">
             <FontAwesomeIcon icon={faLocationDot} />
@@ -160,7 +160,7 @@ const HotelDetail = () => {
               <h2>
                 <b>NTD$9800</b> (9 晚)
               </h2>
-              <button>保留或預訂!</button>
+              <button>預訂!</button>
             </div>
           </div>
         </div>
