@@ -48,10 +48,10 @@ const HotelList = () => {
             </div>
             <div className="lsItem">
               <label>入住日期</label>
-              {/* <span onClick={() => setOpenDate(!openDate)}>{`${format(
+              <span onClick={() => setOpenDate(!openDate)}>{`${format(
                 date[0].startDate,
                 'MM/dd/yyyy'
-              )} to ${format(date[0].endDate, 'MM/dd/yyyy')}`}</span> */}
+              )} to ${format(date[0].endDate, 'MM/dd/yyyy')}`}</span>
               {openDate && (
                 <DateRange
                   onChange={(item) => setDate([item.selection])}
