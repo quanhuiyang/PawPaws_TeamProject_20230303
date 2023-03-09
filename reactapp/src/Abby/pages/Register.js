@@ -75,7 +75,6 @@ function Register() {
     const response = await AuthService.register({
       email,
       password: encryption,
-      name: '',
     })
 
     if (response.data.state) {

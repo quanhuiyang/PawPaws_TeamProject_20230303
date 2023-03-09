@@ -9,11 +9,6 @@ import AuthService from '../Abby/auth.service'
 import { useNavigate } from 'react-router-dom'
 import { auth, provide } from './config/firebase'
 import { signInWithPopup } from 'firebase/auth'
-// const fs = require('fs');
-// const path = require('path');
-// const os = require('os');
-// require("dotenv").config({ path: __dirname + "/dev.env" });
-// require('dotenv').config({ path: 'http://localhost:3001/.env' });
 
 function Members() {
   const navigate = useNavigate()
@@ -33,9 +28,6 @@ function Members() {
       name: result.user.displayName,
     })
 
-    console.log(response)
-
-    console.log('response?.user', response.data?.user)
     if (!response.data?.state && response.data?.user) {
       localStorage.setItem('user', JSON.stringify(response.data.user[0]))
     }
@@ -66,7 +58,7 @@ function Members() {
   const handleSignin = async (event) => {
     event.preventDefault()
     console.log('inputData', inputData)
-    // console.log(process.env.NODE_API_URL);
+
     const { userEmail, userPassword } = inputData
     const encryption = md5(userPassword)
     if (userEmail === '' || userPassword === '') return
@@ -80,7 +72,7 @@ function Members() {
     if (response.data.state) {
       Swal.fire({
         icon: 'success',
-        title: '成功登入!',
+        title: '登入成功',
         showConfirmButton: false,
         timer: 1500,
       }).then(() => {
@@ -94,9 +86,8 @@ function Members() {
       Swal.fire({
         title: '登入失敗!',
         icon: 'error',
-        confirmButtonText: 'Cool',
+        confirmButtonText: 'ok',
       })
-      // setAlert({ state: true, message: response.data.message })
     }
   }
   return (
@@ -156,7 +147,7 @@ function Members() {
               <GoogleButton
                 type="dark"
                 label="Sign up with Google"
-                style={{ width: 200 }}
+                style={{ width: 250 }}
                 onClick={() => {
                   login()
                 }}

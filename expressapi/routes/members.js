@@ -210,7 +210,7 @@ router.post('/changePassword', async function (req, res) {
         if (result.changedRows) {
           res.json({
             state: true,
-            message: `修改成功！`,
+            message: `修改為新密碼成功！`,
             userInfo: req.body,
           })
         } else {

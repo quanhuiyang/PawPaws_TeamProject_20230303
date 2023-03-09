@@ -114,7 +114,7 @@ form input{
 .form-submit-area{
   display: flex;
   justify-content: space-between;
-  padding: 0px 20px 0px 20px
+  padding: 0 20px
 
 }
 .form-submit-area button{
@@ -127,9 +127,11 @@ form input{
   background: #8DD9CE;
   color: #fff;
   font-size: 13px;
+  margin-left: 10px
 }
 .rewrite-btn{
   font-size: 13px;
+  margin-right: 10px;
 }
 .google-btn{
   display: flex;
@@ -184,7 +186,7 @@ form input{
   .loginArea{
     display: flex;
     justify-content: center;
-    padding: 0 80px;
+    padding: 0 20px;
   }
   .top-login-btn{
     background: #8DD9CE;
@@ -202,7 +204,6 @@ form input{
   .login-btn{
     background: #8DD9CE;
     color: #fff;
-    padding: 8px 190px;
     border-radius: 5px;
     font-size: 14px;
     width: 100%;

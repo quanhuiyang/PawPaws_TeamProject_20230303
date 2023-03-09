@@ -9,11 +9,12 @@ export const ForgetPwdEmail = () => {
 
     emailjs
       .sendForm(
-        'service_a5s2e7t',
-        'template_pu0w9xn',
+        process.env.REACT_APP_SERVICE,
+        process.env.REACT_APP_TEMPLATE,
         form.current,
-        'oEcYPjwbY8AMtRWeB'
+        process.env.REACT_APP_KEY
       )
+
       .then(
         (result) => {
           console.log(result.text)

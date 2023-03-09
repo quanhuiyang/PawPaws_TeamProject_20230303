@@ -4,11 +4,15 @@ import { Link, useLocation } from 'react-router-dom'
 import qs from 'qs'
 import AuthService from '../auth.service'
 import md5 from 'md5'
+import Swal from 'sweetalert2'
+import { useNavigate } from 'react-router-dom'
 
 const NewPwdTitle = {
   margin: 0,
 }
 function NewPwd() {
+  const navigate = useNavigate()
+
   const [page, setPage] = useState(0)
   const [token, setToken] = useState('')
   const [data, setData] = useState({})
@@ -51,18 +55,38 @@ function NewPwd() {
     const response = await AuthService.changePassword({
       data,
     })
-
+    if (response.data.state) {
+      Swal.fire({
+        icon: 'success',
+        title: response.data.message,
+        showConfirmButton: false,
+        timer: 1500,
+      }).then(() => {
+        navigate('/MemberInfo')
+      })
+    } else {
+      Swal.fire({
+        title: response.data.message,
+        showConfirmButton: false,
+        timer: 1500,
+      })
+    }
     console.log('response', response)
   }
 
   return (
     <>
       <div className="container">
-        <div className="formHeader">
-          <button className="top-info-btn member-button">個人資訊</button>
-          <button className="top-order-btn member-button">訂單查詢</button>
-          <button className="top-likes-btn member-button">我的追蹤</button>
-        </div>
+        {token === '' ? (
+          <div className="formHeader">
+            <button className="top-info-btn member-button">個人資訊</button>
+            <button className="top-order-btn member-button">訂單查詢</button>
+            <button className="top-likes-btn member-button">我的追蹤</button>
+          </div>
+        ) : (
+          ''
+        )}
+
         <form onSubmit={handleSubmit}>
           <input type="text" name="token" value={token} hidden />
           <div className="form-area-edit">
@@ -109,8 +133,8 @@ function NewPwd() {
               </div>
             </div>
             <div className="form-submit-area">
-              <button type="reset" className="rewrite-btn twoBtns">
-                重新填寫
+              <button type="button" className="rewrite-btn twoBtns">
+                回上一頁
               </button>
               <button type="submit" className="join-btn twoBtns">
                 儲存送出
