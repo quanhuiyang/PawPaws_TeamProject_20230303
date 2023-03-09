@@ -1,6 +1,6 @@
 import './hotelList.css'
 import { useLocation } from 'react-router-dom'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { format } from 'date-fns'
 import { DateRange } from 'react-date-range'
 import SearchItem from '../../components/searchItem/SearchItem'
@@ -18,6 +18,23 @@ const HotelList = () => {
   const [date, setDate] = useState(d1)
   const [openDate, setOpenDate] = useState(false)
   const [options, setOptions] = useState(d2)
+
+  const [hotel, setHotel] = useState([])
+  //不要讓getHotel()被重複渲染
+  useEffect(() => {
+    getHotel()
+  }, [])
+  const getHotel = () => {
+    const url = 'http://localhost:3000/hotel/'
+    fetch(url, {
+      method: 'get',
+    })
+      .then((r) => r.json())
+      .then((rData) => {
+        console.log(rData)
+        setHotel(rData)
+      })
+  }
 
   return (
     <div>
@@ -95,15 +112,12 @@ const HotelList = () => {
             <button>搜尋</button>
           </div>
           <div className="listResult">
-            <SearchItem id="1" />
-            <SearchItem id="2" />
-            <SearchItem />
-            <SearchItem />
-            <SearchItem />
-            <SearchItem />
-            <SearchItem />
-            <SearchItem />
-            <SearchItem />
+            <SearchItem hotel={hotel} id="1" />
+            <SearchItem hotel={hotel} id="2" />
+            <SearchItem hotel={hotel} />
+            <SearchItem hotel={hotel} />
+            <SearchItem hotel={hotel} />
+            <SearchItem hotel={hotel} />
           </div>
         </div>
       </div>

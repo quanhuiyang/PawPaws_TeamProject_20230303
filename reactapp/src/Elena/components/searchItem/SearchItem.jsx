@@ -1,6 +1,11 @@
 // import './searchItem.css'
 // import { Link, useNavigate } from 'react-router-dom'
 
+// function hotel(props) {
+
+//   //進行解構
+//   const { hotel } = props
+
 // const SearchItem = ({ id = '999' }) => {
 //   const navigate = useNavigate()
 
@@ -8,8 +13,8 @@
 //     <div className="searchItem">
 //       <img src={item.photos[0]} alt="" className="siImg" />
 //       <div className="siDesc">
-//         <h1 className="siTitle">{item.name}</h1>
-//         <span className="siDistance">離市中心{item.distance}m</span>
+//         <h1 className="siTitle">{item.h_name}</h1>
+//         <span className="siDistance">離市中心{item.h_distance}m</span>
 //         <span className="siTaxi0p">免費機場接駁</span>
 //         <span className="siSubtitle">冷氣套房</span>
 //         <span className="siFeatures">一大床 • 獨立衛浴 • minibar</span>
@@ -20,11 +25,11 @@
 //         {item.rating && (
 //           <div className="siRating">
 //             <span>超讚</span>
-//             <button>{item.rating}</button>
+//             <button>{item.h_rating}</button>
 //           </div>
 //         )}
 //         <div className="siDetailTexts">
-//           <span className="siPrice">NTD${item.cheapestPrice}</span>
+//           <span className="siPrice">NTD${item.h_cheapestPrice}</span>
 //           <span className="siTaxOp">含稅價</span>
 //           <Link to={`/hotels/${item._h_id}`}>
 //             <button

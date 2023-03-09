@@ -23,13 +23,13 @@ router.get('/:h_id', async (req, res) => {
   res.json(rows[0])
 })
 
-// 新增
-router.post('/', createHotel)
+// // 新增
+// router.post('/', createHotel)
 
-// 修改
-router.put('/:h_id', updateHotel)
+// // 修改
+// router.put('/:h_id', updateHotel)
 
-// 刪除
-router.delete('/:h_id', deleteHotel)
+// // 刪除
+// router.delete('/:h_id', deleteHotel)
 
 module.exports = router
