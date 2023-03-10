@@ -59,7 +59,7 @@ function Activity() {
         </div>
       </div>
       <div className="wrap">
-        {/* <SearchBox /> */}
+        <SearchBox />
         <Arrowbtn name={cardtitle[0]} />
         <Acard activity={activity} />
         <Arrowbtn name={cardtitle[1]} />

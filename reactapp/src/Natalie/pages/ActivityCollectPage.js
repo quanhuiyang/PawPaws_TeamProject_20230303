@@ -1,7 +1,12 @@
 import React from 'react'
+import AcardContainer from '../components/AcardContainer'
 
 function ActivityCollectPage() {
-  return <div>ActivityCollectPage</div>
+  return (
+    <>
+      <AcardContainer />
+    </>
+  )
 }
 
 export default ActivityCollectPage

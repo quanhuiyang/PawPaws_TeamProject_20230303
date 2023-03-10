@@ -9,14 +9,14 @@ import { useNavigate } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 
 function Acard(props) {
-  // const navigate = useNavigate()
-
   //進行解構
   const { activity } = props
-
-  // const jump = () => {
-  //   navigate('/activity/detail/:activity_id')
-  // }
+  //照片導向詳細頁
+  const navigate = useNavigate()
+  const handleClick = (aid) => {
+    navigate(`/activity/detail/${aid}`)
+  }
+  //收藏
 
   return (
     <div>
@@ -41,6 +41,7 @@ function Acard(props) {
                   src={
                     'http://localhost:3001/images/Natalie_img/' + item.picture
                   }
+                  onClick={() => handleClick(item.activity_id)}
                   alt={item.picture}
                 />
                 <div className="location">

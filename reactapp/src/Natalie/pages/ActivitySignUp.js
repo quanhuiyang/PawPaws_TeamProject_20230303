@@ -1,52 +1,89 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
+import Swal from 'sweetalert2'
 
 function ActivitySignUp() {
+  const [activitySign, setActivitySign] = useState([])
+  const { activity_id } = useParams()
+
+  useEffect(() => {
+    getActivitySign()
+  }, [])
+  const getActivitySign = () => {
+    const url = `http://localhost:3000/activity/detail/${activity_id}`
+    fetch(url, {
+      method: 'get',
+    })
+      .then((r) => r.json())
+      .then((rData) => {
+        console.log(rData)
+        setActivitySign(rData)
+      })
+  }
+
+  //彈出
+
+  const handleClick = () => {
+    Swal.fire({
+      icon: 'success',
+      title: '報名成功!',
+      showConfirmButton: false,
+      timer: 1500,
+    })
+  }
+
   return (
     <div>
-      <SignupCard>
-        <Infoheader>
-          <h5>參加活動報名表</h5>
-        </Infoheader>
-        <img src="../images/Natalie_img/AC06.jpg" alt="AC06" />
-
-        <Form>
-          <InputBox>
-            <h6>活動名稱</h6>
-            <h6>成大寵物展</h6>
-          </InputBox>
-
-          <InputBox>
-            <p>姓名</p>
-            <input type="text" name="name" placeholder="請輸入姓名" />
-          </InputBox>
-
-          <InputBox>
-            <p>信箱</p>
-            <input type="email" name="email" placeholder="請輸入email" />
-          </InputBox>
-          <InputBox>
-            <p>手機</p>
-            <input
-              type="text"
-              name="text"
-              placeholder="請輸入手機號碼"
-              minLength={10}
-              maxLength={10}
+      {activitySign &&
+        activitySign.length > 0 &&
+        activitySign.map((item) => (
+          <SignupCard>
+            <Infoheader>
+              <h5>參加活動報名表</h5>
+            </Infoheader>
+            <img
+              src={'http://localhost:3001/images/Natalie_img/' + item.picture}
+              alt={item.picture}
             />
-          </InputBox>
-          <InputBox>
-            <p>地址</p>
-            <input type="text" placeholder="聯絡地址" />
-          </InputBox>
-          <Btn>
-            <Link to="/activity/detail/:activity_id">
-              <button>送出</button>
-            </Link>
-          </Btn>
-        </Form>
-      </SignupCard>
+
+            <Form>
+              <InputBox>
+                <h6>活動名稱</h6>
+                <h6>{item.title}</h6>
+              </InputBox>
+
+              <InputBox>
+                <p>姓名</p>
+                <input type="text" name="name" placeholder="請輸入姓名" />
+              </InputBox>
+
+              <InputBox>
+                <p>信箱</p>
+                <input type="email" name="email" placeholder="請輸入email" />
+              </InputBox>
+              <InputBox>
+                <p>手機</p>
+                <input
+                  type="text"
+                  name="text"
+                  placeholder="請輸入手機號碼"
+                  minLength={10}
+                  maxLength={10}
+                />
+              </InputBox>
+              <InputBox>
+                <p>地址</p>
+                <input type="text" placeholder="聯絡地址" />
+              </InputBox>
+              <Btn>
+                <Link to={`/activity/detail/${activity_id}`}>
+                  <button onClick={handleClick}>送出</button>
+                </Link>
+              </Btn>
+            </Form>
+          </SignupCard>
+        ))}
     </div>
   )
 }
@@ -69,6 +106,7 @@ const SignupCard = styled.div`
   border-radius: 20px;
   width: 50%;
   max-width: 600px;
+  min-width: 300px;
   height: fit-content;
   img {
     padding: 30px;

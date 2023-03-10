@@ -84,7 +84,10 @@ function App() {
                   path="/activity/detail/:activity_id"
                   element={<ActivityDetail />}
                 />
-                <Route path="/activity/signup" element={<ActivitySignUp />} />
+                <Route
+                  path="/activity/signup/:activity_id"
+                  element={<ActivitySignUp />}
+                />
                 <Route path="/collection" element={<Collection />} />
 
                 {/* ** Abby ** */}
