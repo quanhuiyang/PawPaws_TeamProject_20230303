@@ -11,7 +11,6 @@ const PropertyList = () => {
         />
         <div className="pListTitles">
           <h1>飯店</h1>
-          <h2>233間 飯店</h2>
         </div>
       </div>
       <div className="pListItem">
@@ -22,7 +21,6 @@ const PropertyList = () => {
         />
         <div className="pListTitles">
           <h1>公寓</h1>
-          <h2>2331間 飯店</h2>
         </div>
       </div>
       <div className="pListItem">
@@ -33,7 +31,6 @@ const PropertyList = () => {
         />
         <div className="pListTitles">
           <h1>度假村</h1>
-          <h2>2331間 飯店</h2>
         </div>
       </div>
       <div className="pListItem">
@@ -44,7 +41,6 @@ const PropertyList = () => {
         />
         <div className="pListTitles">
           <h1>別墅</h1>
-          <h2>2331間 飯店</h2>
         </div>
       </div>
       <div className="pListItem">
@@ -55,7 +51,6 @@ const PropertyList = () => {
         />
         <div className="pListTitles">
           <h1>小木屋</h1>
-          <h2>2331間 飯店</h2>
         </div>
       </div>
     </div>

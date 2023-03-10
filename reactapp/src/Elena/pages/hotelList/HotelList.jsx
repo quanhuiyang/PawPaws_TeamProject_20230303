@@ -1,6 +1,6 @@
 import './hotelList.css'
 import { useLocation } from 'react-router-dom'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { format } from 'date-fns'
 import { DateRange } from 'react-date-range'
 import SearchItem from '../../components/searchItem/SearchItem'
@@ -19,10 +19,25 @@ const HotelList = () => {
   const [openDate, setOpenDate] = useState(false)
   const [options, setOptions] = useState(d2)
 
+  const [hotels, setHotel] = useState([])
+  //不要讓getHotel()被重複渲染
+  useEffect(() => {
+    getHotel()
+  }, [])
+  const getHotel = () => {
+    const url = 'http://localhost:3000/hotel/'
+    fetch(url, {
+      method: 'get',
+    })
+      .then((r) => r.json())
+      .then((rData) => {
+        // console.log(rData)
+        setHotel(rData)
+      })
+  }
+
   return (
     <div>
-      {/* <Navbar /> */}
-      {/* <SearchBar /> */}
       <div className="listContainer">
         <div className="listWrapper">
           <div className="listSearch">
@@ -97,15 +112,9 @@ const HotelList = () => {
             <button>搜尋</button>
           </div>
           <div className="listResult">
-            <SearchItem id="1" />
-            <SearchItem id="2" />
-            <SearchItem />
-            <SearchItem />
-            <SearchItem />
-            <SearchItem />
-            <SearchItem />
-            <SearchItem />
-            <SearchItem />
+            {hotels.map((hotel) => (
+              <SearchItem hotel={hotel} key={hotel.h_id} />
+            ))}
           </div>
         </div>
       </div>
