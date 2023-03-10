@@ -77,7 +77,7 @@ router.get('/alikes', async (req, res) => {
   // WHERE pl.member_id=${req.session.user.id}
   // ORDER BY pl.created_at ASC`
 
-  const sql = `SELECT a.*, l.aid FROM alike l
+  const sql = `SELECT a.*, l.aid FROM a_like l
     JOIN activity a
       ON l.activity_id=a.activity_id
     WHERE l.sid=${req.session.user.id}
@@ -89,13 +89,33 @@ router.get('/alikes', async (req, res) => {
   res.json(output)
 })
 
-//收藏2
+//拿到報名資訊
+// router.get('/participants', (req, res) => {
+//   res.send('participants sign up page')
+// })
+router.post('/participants', (req, res) => {
+  const {
+    name: a_name,
+    email: a_email,
+    phone: a_phone,
+    address: a_address,
+  } = req.body
+  console.log(req.body)
+  const sql =
+    'INSERT INTO participants (a_name, a_mail, a_phone, a_address) VALUES (?, ?, ?, ?)'
+  db.query(sql, [a_name, a_email, a_phone, a_address], (err, result) => {
+    if (err) {
+      console.log(err)
+      res.sendStatus(200)
+      return
+    }
 
-//其他
-router.get('/signup', (req, res) => {
-  res.send('activity sign up page')
+    console.log(result)
+    res.sendStatus(200)
+  })
 })
 
+//其他
 router.get('/success', (req, res) => {
   res.send('activity success page')
 })

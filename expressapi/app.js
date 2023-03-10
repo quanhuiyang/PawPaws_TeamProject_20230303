@@ -13,6 +13,7 @@ const shopRouter = require('./routes/shop')
 const hotelRouter = require('./routes/hotel')
 const activityRouter = require('./routes/activity')
 const membersRouter = require('./routes/members')
+const app = express()
 
 const app = express()
 dotenv.config()
