@@ -32,25 +32,31 @@ function ForgetPwd() {
         title: '已發送重設密碼信件至您的信箱!',
         showConfirmButton: true,
       })
+    } else {
+      Swal.fire({
+        title: '您輸入的email不正確',
+        showConfirmButton: true,
+      })
+    }
 
-      setTimeout(() => {
-        emailjs
-          .sendForm(
-            'service_a5s2e7t',
-            'template_pu0w9xn',
-            form.current,
-            'oEcYPjwbY8AMtRWeB'
-          )
-          .then(
-            (result) => {
-              console.log(result.text)
-            },
-            (error) => {
-              console.log(error.text)
-            }
-          )
-      }, 0)
-    } else if (response.data.error === 'googleAuth') {
+    setTimeout(() => {
+      emailjs
+        .sendForm(
+          'service_a5s2e7t',
+          'template_pu0w9xn',
+          form.current,
+          'oEcYPjwbY8AMtRWeB'
+        )
+        .then(
+          (result) => {
+            console.log(result.text)
+          },
+          (error) => {
+            console.log(error.text)
+          }
+        )
+    }, 0)
+    if (response.data.error === 'googleAuth') {
       Swal.fire({
         icon: 'warning',
         title: '此帳號為 Google 登入',

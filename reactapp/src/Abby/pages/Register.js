@@ -46,6 +46,10 @@ function Register() {
     password2: '',
   })
 
+  const handleReset = () => {
+    setUser('')
+  }
+
   // 用於記錄錯誤訊息之用
   const [fieldErrors, setFieldErrors] = useState({
     email: '',
@@ -97,12 +101,8 @@ function Register() {
         timer: 1500,
       })
     }
-
-    // window.location = '/login'
   }
 
-  // 表單有發生驗証錯誤時，會觸發此事件
-  // 所有欄位的錯誤都會一並檢查到
   const handleInvaild = (e) => {
     e.preventDefault()
 
@@ -129,6 +129,7 @@ function Register() {
           onSubmit={handleRegister}
           onInvalid={handleInvaild}
           onChange={handleFormChange}
+          onReset={handleReset}
         >
           <div className="form-area">
             <div className="form-header">

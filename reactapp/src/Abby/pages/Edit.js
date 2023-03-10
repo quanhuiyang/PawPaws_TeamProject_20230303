@@ -2,7 +2,6 @@ import { React, useEffect, useState } from 'react'
 import './Edit.scss'
 import AccountCircleIcon from '@mui/icons-material/AccountCircle'
 import { Link } from 'react-router-dom'
-
 import cities from './cityData/cities'
 import districts from './cityData/districts'
 import HeaderForm from '../components/HeaderForm'

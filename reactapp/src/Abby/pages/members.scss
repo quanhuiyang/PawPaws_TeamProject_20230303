@@ -15,6 +15,8 @@ main{
 .abby *{
   font-family: 'Noto Sans Arabic',sans-serif;
 }
+
+
 .error {
   font-size: 9px;
   color:red;
@@ -235,6 +237,9 @@ form input{
       width: 46%;
       padding-left: 0;
       padding-right: 0;
+    }
+    .loginArea{
+      padding: 0 80px;
     }
   }
 

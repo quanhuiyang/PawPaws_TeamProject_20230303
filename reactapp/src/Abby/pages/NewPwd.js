@@ -6,10 +6,16 @@ import AuthService from '../auth.service'
 import md5 from 'md5'
 import Swal from 'sweetalert2'
 import { useNavigate } from 'react-router-dom'
+import { borderRadius, style } from '@mui/system'
 
+const LinkClassName = {
+  textDecoration: 'none',
+  color: '#868686',
+}
 const NewPwdTitle = {
   margin: 0,
 }
+
 function NewPwd() {
   const navigate = useNavigate()
 
@@ -134,8 +140,11 @@ function NewPwd() {
             </div>
             <div className="form-submit-area">
               <button type="button" className="rewrite-btn twoBtns">
-                回上一頁
+                <Link to="/memberinfo" style={LinkClassName}>
+                  回上一頁
+                </Link>
               </button>
+
               <button type="submit" className="join-btn twoBtns">
                 儲存送出
               </button>
