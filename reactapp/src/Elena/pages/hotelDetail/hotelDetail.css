@@ -14,6 +14,10 @@
   position: relative;
 }
 
+.hotelWrapper img {
+  margin-bottom: 0.5rem;
+}
+
 .bookNow {
   position: absolute;
   top: 10px;

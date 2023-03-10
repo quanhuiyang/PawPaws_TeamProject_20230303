@@ -19,27 +19,21 @@
       flex: 0 0 25%;
       font-size: 16px;
       border: 1px solid #8DD9CE;
-      
+      border-bottom: none;
+      margin-right: 20px;
+      border-radius: 10px 10px 0px 0px;
+    }
+
+    .formHeader button.active{
+      background-color: #8DD9CE;
+      color:#fff;
     }
     .top-login-btn{
       background: #8DD9CE;
       color: #fff;
       text-decoration: none;
     }
-    .top-info-btn{
-      background-color: #8DD9CE;
-      margin-right: 20px;
-      border-radius: 10px 10px 0px 0px;
-      color: #fff;
-    }
-    .top-order-btn{
-      margin-right: 20px;
-      border-radius: 10px 10px 0px 0px;
-    }
-    .top-likes-btn{
-      margin-right: 20px;
-      border-radius: 10px 10px 0px 0px;
-    }
+
     .group span{
       font-size: 13px;
     }
@@ -64,7 +58,13 @@
   
     .cancel-btn{
       font-size: 13px;
+      margin-right: 10px;
     }
+
+    .member-button.logoutBtn{
+      padding: 10px;
+    }
+
 
     @media screen and (min-width:768px){
       .group select{

@@ -5,6 +5,8 @@ const cookieParser = require('cookie-parser')
 const logger = require('morgan')
 const cors = require('cors')
 
+const dotenv = require('dotenv')
+
 // 1. 引用routes 資料夾下的程式
 const indexRouter = require('./routes/index')
 const shopRouter = require('./routes/shop')
@@ -12,6 +14,10 @@ const hotelRouter = require('./routes/hotel')
 const activityRouter = require('./routes/activity')
 const membersRouter = require('./routes/members')
 const app = express()
+
+const app = express()
+dotenv.config()
+
 app.use(cors())
 
 // view engine setup

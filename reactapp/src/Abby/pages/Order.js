@@ -12,7 +12,7 @@ function Order() {
   return (
     <>
       <form>
-        <div className="form-area">
+        <div className="form-area-edit">
           <div className="form-body">
             <div style={{ textAlign: "center" }}>
               <h2>訂購查詢</h2>
