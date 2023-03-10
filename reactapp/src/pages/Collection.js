@@ -11,8 +11,8 @@ function Collection() {
       <CollectTitle>
         <h4>收藏清單</h4>
         {/* 切換分頁按鈕 */}
-        <button onClick={() => setCurrentPage(0)}>商品收藏</button>
-        <button onClick={() => setCurrentPage(1)}>活動收藏</button>
+        <button onClick={() => setCurrentPage(0)}>活動收藏</button>
+        <button onClick={() => setCurrentPage(1)}>商品收藏</button>
         <button onClick={() => setCurrentPage(2)}>飯店收藏</button>
         <hr />
         {/* 顯示當前分頁 */}

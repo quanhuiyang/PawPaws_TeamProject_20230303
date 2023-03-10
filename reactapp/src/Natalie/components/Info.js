@@ -1,4 +1,4 @@
-import React, { navigate } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 import Collectbtn from './Collectbtn'
@@ -20,7 +20,7 @@ function Info(props) {
         </p>
         <p>{item.place}</p>
         <Btn>
-          <Link to="/activity/signup">
+          <Link to={`/activity/signup/${item.activity_id}`}>
             <button>我要報名</button>
           </Link>
           <Collectbtn />
