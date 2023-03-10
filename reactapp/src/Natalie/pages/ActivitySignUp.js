@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import { Link, useParams } from 'react-router-dom'
 import Swal from 'sweetalert2'
+import axios from 'axios'
 
 function ActivitySignUp() {
   const [activitySign, setActivitySign] = useState([])
@@ -9,7 +10,7 @@ function ActivitySignUp() {
 
   useEffect(() => {
     getActivitySign()
-  }, [])
+  }, [activity_id])
   const getActivitySign = () => {
     const url = `http://localhost:3000/activity/detail/${activity_id}`
     fetch(url, {
@@ -21,8 +22,17 @@ function ActivitySignUp() {
         setActivitySign(rData)
       })
   }
+  //送到後端
+  const [auser, setAuser] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    address: '',
+  })
 
-  //彈出
+  const handleUserChange = (e) => {
+    setAuser({ ...auser, [e.target.name]: e.target.value })
+  }
 
   const handleClick = () => {
     Swal.fire({
@@ -32,6 +42,28 @@ function ActivitySignUp() {
       timer: 1500,
     })
   }
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    axios
+      .post('http://localhost:3000/activity/participants', auser)
+      .then((res) => {
+        if (res.success) {
+          handleClick() // 提交成功後顯示提示框
+          console.log(res.data)
+          setAuser({
+            // 清空表單數據
+            name: '',
+            email: '',
+            phone: '',
+            address: '',
+          })
+        }
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+  }
+  //彈出
 
   return (
     <div>
@@ -48,39 +80,61 @@ function ActivitySignUp() {
             />
 
             <Form>
-              <InputBox>
-                <h6>活動名稱</h6>
-                <h6>{item.title}</h6>
-              </InputBox>
+              <form onSubmit={handleSubmit}>
+                <InputBox>
+                  <h6>活動名稱</h6>
+                  <h6>{item.title}</h6>
+                </InputBox>
 
-              <InputBox>
-                <p>姓名</p>
-                <input type="text" name="name" placeholder="請輸入姓名" />
-              </InputBox>
+                <InputBox>
+                  <p>姓名</p>
+                  <input
+                    type="text"
+                    name="name"
+                    placeholder="請輸入姓名"
+                    defaultValue={auser.name}
+                    onChange={handleUserChange}
+                  />
+                </InputBox>
 
-              <InputBox>
-                <p>信箱</p>
-                <input type="email" name="email" placeholder="請輸入email" />
-              </InputBox>
-              <InputBox>
-                <p>手機</p>
-                <input
-                  type="text"
-                  name="text"
-                  placeholder="請輸入手機號碼"
-                  minLength={10}
-                  maxLength={10}
-                />
-              </InputBox>
-              <InputBox>
-                <p>地址</p>
-                <input type="text" placeholder="聯絡地址" />
-              </InputBox>
-              <Btn>
-                <Link to={`/activity/detail/${activity_id}`}>
-                  <button onClick={handleClick}>送出</button>
-                </Link>
-              </Btn>
+                <InputBox>
+                  <p>信箱</p>
+                  <input
+                    type="email"
+                    name="email"
+                    placeholder="請輸入email"
+                    defaultValue={auser.email}
+                    onChange={handleUserChange}
+                  />
+                </InputBox>
+                <InputBox>
+                  <p>手機</p>
+                  <input
+                    type="text"
+                    name="phone"
+                    placeholder="請輸入手機號碼"
+                    minLength={10}
+                    maxLength={10}
+                    defaultValue={auser.phone}
+                    onChange={handleUserChange}
+                  />
+                </InputBox>
+                <InputBox>
+                  <p>地址</p>
+                  <input
+                    type="text"
+                    name="address"
+                    placeholder="聯絡地址"
+                    defaultValue={auser.address}
+                    onChange={handleUserChange}
+                  />
+                </InputBox>
+                <Btn>
+                  <Link to={`/activity/detail/${activity_id}`}>
+                    <button type="submit">送出</button>
+                  </Link>
+                </Btn>
+              </form>
             </Form>
           </SignupCard>
         ))}
@@ -121,8 +175,7 @@ const Form = styled.div`
     width: 90%;
     padding: 5px;
     border-radius: 10px;
-    margin-bottom: 1rem;
-    margin-left: 1rem;
+    margin: 0 0 16px 16px;
   }
 `
 const Btn = styled.div`
