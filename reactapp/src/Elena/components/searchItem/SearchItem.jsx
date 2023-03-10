@@ -37,7 +37,7 @@ function SearchItem(props) {
           <button
             className="siCheckButton"
             onClick={() => {
-              navigate('/hotel/hoteldetail/${hotel.h_id}')
+              navigate(`/hotel/hoteldetail/${hotel.h_id}`)
             }}
           >
             預訂

@@ -18,7 +18,7 @@ router.get('/', async (req, res) => {
 // http://localhost:3000/hotel/h_id
 router.get('/:h_id', async (req, res) => {
   const hotelId = req.params.h_id
-  const sql = 'SELECT `h_id`,`h_name` FROM `hotel` WHERE `h_id`=?'
+  const sql = 'SELECT * FROM hotel WHERE `h_id`=?'
   const [rows] = await db.query(sql, [hotelId])
   res.json(rows[0])
 })
