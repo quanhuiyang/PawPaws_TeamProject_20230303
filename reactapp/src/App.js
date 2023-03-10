@@ -1,7 +1,7 @@
 import Home from './pages/Home'
 
 import Shop from './pages/Shop'
-import Collection from '../src/Amy/pages/Collection'
+// import Collection from '../src/Amy/pages/Collection'
 import Bar from './Amy/components/Bar/index'
 import Promotion from './Amy/components/Promotion/index'
 import AppDrawer from './Amy/components/Drawer/index'
@@ -14,7 +14,9 @@ import HotelDetail from './Elena/pages/hotelDetail/HotelDetail'
 import HotelList from './Elena/pages/hotelList/HotelList'
 
 import Activity from './pages/Activity'
+import Collection from './pages/Collection'
 import ActivityDetail from './Natalie/pages/ActivityDetail'
+import ActivitySignUp from './Natalie/pages/ActivitySignUp'
 
 import Members from './pages/Members'
 import Edit from './Abby/pages/Edit'
@@ -22,6 +24,7 @@ import Register from './Abby/pages/Register'
 import NewPwd from './Abby/pages/NewPwd'
 import Order from './Abby/pages/Order'
 import MemberInfo from './Abby/pages/MemberInfo'
+import ForgetPwd from './Abby/pages/ForgetPwd'
 
 import React from 'react'
 import Header from './components/headers/Headers'
@@ -61,7 +64,7 @@ function App() {
                 {/* ** Amy ** */}
                 {/* http://localhost:3000/shop */}
                 <Route path="/shop" element={<Shop />} />
-                <Route path="/collection" element={<Collection />} />
+                {/* <Route path="/collection" element={<Collection />} /> */}
                 {/* http:localhost:3001/cart */}
                 {/* <Route path="/cart" element={<Cart/>} /> */}
                 {/* http:localhost:3001/collection */}
@@ -78,7 +81,15 @@ function App() {
                 {/* ** Natalie ** */}
                 {/* http://localhost:3000/activity */}
                 <Route path="/activity" element={<Activity />} />
-                <Route path="/activity/detail" element={<ActivityDetail />} />
+                <Route
+                  path="/activity/detail/:activity_id"
+                  element={<ActivityDetail />}
+                />
+                <Route
+                  path="/activity/signup/:activity_id"
+                  element={<ActivitySignUp />}
+                />
+                <Route path="/collection" element={<Collection />} />
 
                 {/* ** Abby ** */}
                 {/* http://localhost:3000/members */}
@@ -87,6 +98,7 @@ function App() {
                 <Route path="/Memberinfo" element={<MemberInfo />} />
                 <Route path="/NewPwd" element={<NewPwd />} />
                 <Route path="/Order" element={<Order />} />
+                <Route path="/ForgetPwd" element={<ForgetPwd />} />
 
                 {/* http://localhost:3000/shopcart */}
                 {/* <Route path="/shopcart" element={<shopcart />} /> */}

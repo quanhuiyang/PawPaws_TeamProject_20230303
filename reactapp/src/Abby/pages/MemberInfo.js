@@ -8,23 +8,23 @@ export default function MemberInfo() {
 
   return (
     <>
-      <div>編輯個人資料</div>
+     
       <div className="container">
         <div className="formHeader">
           <button
-            className="top-info-btn member-button"
+            className={`member-button ${page === 0 ? ' active' : ''}`}
             onClick={() => setPage(0)}
           >
             個人資訊
           </button>
           <button
-            className="top-order-btn member-button"
+            className={`member-button ${page === 1 ? ' active' : ''}`}
             onClick={() => setPage(1)}
           >
             訂單查詢
           </button>
           <button
-            className="top-likes-btn member-button"
+            className={`member-button ${page === 2 ? ' active' : ''}`}
             onClick={() => setPage(2)}
           >
             我的追蹤
