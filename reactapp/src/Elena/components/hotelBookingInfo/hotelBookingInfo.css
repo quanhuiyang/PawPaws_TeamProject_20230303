@@ -1,27 +1,39 @@
 .hotelBookingInfoContainer {
   display: flex;
-  align-items: center;
+  align-items: start;
   justify-content: space-evenly;
   margin-top: 50px;
 }
 
 .hotelBookingMember {
-  border: 1px solid #111;
   width: 600px;
   height: 500px;
   margin-top: 50px;
   border-radius: 20px;
-  margin-right: -100px;
+  margin-right: -300px;
 }
 
 .hotelBookingHotel {
-  border: 2px solid #111;
-  width: 600px;
-  height: 500px;
+  border: 1px solid #8dd9ce;
+  width: 650px;
+  height: 360px;
+  border-radius: 10px;
+  text-align: start;
+  display: flex;
+  align-items: top;
+  justify-content: space-around;
   margin-top: 50px;
-  border-radius: 20px;
+  background-color: white;
 }
 
+.hotelFormContainer {
+  display: flex;
+  align-items: start;
+}
+
+.hotelFormDetail {
+  padding: 10px;
+}
 .profileArea {
   display: flex;
   justify-content: space-between;
@@ -87,6 +99,26 @@
 
 .member-button.logoutBtn {
   padding: 10px;
+}
+
+.hbiImg {
+  width: 300px;
+  height: auto;
+  padding-top: 10px;
+  align-items: center;
+  object-fit: cover;
+  margin-right: 30px;
+}
+
+.hotelBookingInfoBtn {
+  background: #8dd9ce;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 18px;
+  border: none;
+  width: 180px;
+  height: 50px;
 }
 
 @media screen and (min-width: 768px) {
