@@ -356,7 +356,6 @@
   "resolved" "https://registry.npmjs.org/buffer-equal-constant-time/-/buffer-equal-constant-time-1.0.1.tgz"
   "version" "1.0.1"
 
-
 "bytes@3.0.0":
   "integrity" "sha512-pMhOfFDPiv9t5jjIXkHosWmkSyQbvsgEVNkz0ERHbuLh2T/7j4Mqqpz523Fe8MVY89KC6Sh/QfS2sM+SjgFDcw=="
   "resolved" "https://registry.npmjs.org/bytes/-/bytes-3.0.0.tgz"
@@ -813,14 +812,12 @@
   "resolved" "https://registry.npmjs.org/duplexer3/-/duplexer3-0.1.5.tgz"
   "version" "0.1.5"
 
-
 "ecdsa-sig-formatter@1.0.11":
   "integrity" "sha512-nagl3RYrbNv6kQkeJIpt6NJZy8twLB/2vtz6yN9Z4vRKHN4/QZJIEbqohALSgwKdnksuY3k5Addp5lg8sVoVcQ=="
   "resolved" "https://registry.npmjs.org/ecdsa-sig-formatter/-/ecdsa-sig-formatter-1.0.11.tgz"
   "version" "1.0.11"
   dependencies:
     "safe-buffer" "^5.0.1"
-
 
 "ee-first@1.1.1":
   "integrity" "sha512-WMwm9LhRUo+WUaRN+vRuETqG89IgZphVSNkdFgeb6sS/E4OrDIN7t48CAewSHXc6C8lefD8KKfr5vY61brQlow=="
@@ -2000,7 +1997,6 @@
   dependencies:
     "minimist" "^1.2.0"
 
-
 "jsonwebtoken@^9.0.0":
   "integrity" "sha512-tuGfYXxkQGDPnLJ7SibiQgVgeDgfbPq2k2ICcbgqW8WxWLBAxKQM/ZCu/IT8SOSwmaYl4dpTFCW5xZv7YbbWUw=="
   "resolved" "https://registry.npmjs.org/jsonwebtoken/-/jsonwebtoken-9.0.0.tgz"
@@ -2011,7 +2007,6 @@
     "ms" "^2.1.1"
     "semver" "^7.3.8"
 
-
 "jstransformer@0.0.2":
   "integrity" "sha512-b7tmf91j1ChMuYhwbPBnNgB62dmHuqiHpOdd6QLKzde8HydZqm+ud3qWreGWecSxPBFFNOf1Ozjx0xo2plFdHA=="
   "resolved" "https://registry.npmjs.org/jstransformer/-/jstransformer-0.0.2.tgz"
@@ -2019,7 +2014,6 @@
   dependencies:
     "is-promise" "^2.0.0"
     "promise" "^6.0.1"
-
 
 "jwa@^1.4.1":
   "integrity" "sha512-qiLX/xhEEFKUAJ6FiBMbes3w9ATzyk5W7Hvzpa/SLYdxNtng+gcurvrI7TbACjIXlsJyr05/S1oUhZrc63evQA=="
@@ -2037,7 +2031,6 @@
   dependencies:
     "jwa" "^1.4.1"
     "safe-buffer" "^5.0.1"
-
 
 "kind-of@^3.0.2", "kind-of@^3.0.3", "kind-of@^3.2.0":
   "integrity" "sha512-NOW9QQXMoZGg/oqnVNoNTTIFEIid1627WCffUBJEdMxYApq7mNE7CpzucIPc+ZQg25Phej7IJSmX3hO+oblOtQ=="
@@ -2098,12 +2091,10 @@
   "resolved" "https://registry.npmjs.org/lodash.truncate/-/lodash.truncate-4.4.2.tgz"
   "version" "4.4.2"
 
-
 "lodash@^4.17.21":
   "integrity" "sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg=="
   "resolved" "https://registry.npmjs.org/lodash/-/lodash-4.17.21.tgz"
   "version" "4.17.21"
-
 
 "long@^5.2.1":
   "integrity" "sha512-GKSNGeNAtw8IryjjkhZxuKB3JzlcLTwjtiQCHKvqQet81I93kXslhDQruGI/QsddO83mcDToBVy7GqGS/zYf/A=="
@@ -2814,9 +2805,7 @@
   "resolved" "https://registry.npmjs.org/semver/-/semver-6.3.0.tgz"
   "version" "6.3.0"
 
-
 "semver@^7.2.1", "semver@^7.3.8":
-
   "integrity" "sha512-NB1ctGL5rlHrPJtFDVIVzTyQylMLu9N9VICA6HSFJo8MCGVTMW6gfpicwKmmK/dAjTOrqu5l63JJOpDSrAis3A=="
   "resolved" "https://registry.npmjs.org/semver/-/semver-7.3.8.tgz"
   "version" "7.3.8"

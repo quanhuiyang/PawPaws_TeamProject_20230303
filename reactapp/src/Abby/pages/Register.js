@@ -91,7 +91,7 @@ function Register() {
       }).then(() => {
         localStorage.setItem('email', email)
         // localStorage.setItem('user', JSON.stringify(response.data.userInfo))
-        window.location = '/members'
+        navigate('/members')
       })
     } else {
       Swal.fire({
@@ -194,16 +194,6 @@ function Register() {
               <button type="submit" className="join-btn twoBtns">
                 加入會員
               </button>
-            </div>
-            <div className="google-btn">
-              <GoogleButton
-                type="dark"
-                label="Sign up with Google"
-                style={{ width: 200 }}
-                onClick={() => {
-                  // console.log('Google button clicked')
-                }}
-              />
             </div>
           </div>
         </form>
