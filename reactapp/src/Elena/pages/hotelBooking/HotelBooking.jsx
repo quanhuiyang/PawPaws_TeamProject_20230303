@@ -1,7 +1,14 @@
 import React from 'react'
+import './hotelBooking.css'
+import StateBar from '../../../Elena/components/stateBar/StateBar'
 
 function HotelBooking() {
-  return <div>HotelBooking</div>
+  return (
+    <>
+      <div>test</div>
+      <StateBar />
+    </>
+  )
 }
 
 export default HotelBooking

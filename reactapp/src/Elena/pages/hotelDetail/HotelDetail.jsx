@@ -101,7 +101,7 @@ function HotelDetail() {
           <button
             className="bookNow"
             onClick={() => {
-              navigate(`/hotel/hotelbooking/${hotel.h_id}`)
+              navigate(`/hotel/hotelbooking`)
             }}
           >
             預訂
@@ -151,7 +151,7 @@ function HotelDetail() {
               <button
                 className="bookNow1"
                 onClick={() => {
-                  navigate(`/hotel/hotelbooking/${hotel.h_id}`)
+                  navigate(`/hotel/hotelbooking`)
                 }}
               >
                 預訂
