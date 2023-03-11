@@ -1,36 +1,3 @@
-// import './featuredProperties.css'
-// import useFetch from '../../hooks/useFetch'
-
-// const FeaturedProperties = () => {
-//   const { data, loading, error } = useFetch('/hotels?featured=true&limit=4')
-
-//   return (
-//     <div className="fp">
-//       {loading ? (
-//         'Loading'
-//       ) : (
-//         <>
-//           {data.map((item) => (
-//             <div className="fpItem">
-//               <img src={item.photos[0]} alt="" className="fpImg" />
-//               <span className="fpName">{item.name}</span>
-//               <span className="fpCity">{item.city}</span>
-//               <span className="fpPrice"> NTD ${item.cheapestPrice}起</span>
-//               <div className="fpRating">
-//                 <button>{item.rating}</button>
-//                 <span>很棒</span>
-//               </div>
-//               }
-//             </div>
-//           ))}
-//         </>
-//       )}
-//     </div>
-//   )
-// }
-
-// export default FeaturedProperties
-
 import './featuredProperties.css'
 
 const FeaturedProperties = () => {
@@ -38,7 +5,7 @@ const FeaturedProperties = () => {
     <div className="fp">
       <div className="fpItem">
         <img
-          src="https://cf.bstatic.com/xdata/images/hotel/square600/13125860.webp?k=e148feeb802ac3d28d1391dad9e4cf1e12d9231f897d0b53ca067bde8a9d3355&o=&s=1"
+          src="http://localhost:3000/images/Elena_img/hotel1.jpg"
           alt=""
           className="fpImg"
         />
@@ -46,36 +13,36 @@ const FeaturedProperties = () => {
         <span className="fpCity">台北市</span>
         <span className="fpPrice"> NTD $9800 起</span>
         <div className="fpRating">
-          <button>8.9</button>
-          <span>很棒</span>
-        </div>
-      </div>
-      <div className="fpItem">
-        <img
-          src="https://cf.bstatic.com/xdata/images/hotel/max1280x900/215955381.jpg?k=ff739d1d9e0c8e233f78ee3ced82743ef0355e925df8db7135d83b55a00ca07a&o=&hp=1"
-          alt=""
-          className="fpImg"
-        />
-        <span className="fpName">高雄萬豪酒店</span>
-        <span className="fpCity">高雄市</span>
-        <span className="fpPrice">NTD $9600 起</span>
-        <div className="fpRating">
-          <button>9.3</button>
+          <button>9.8</button>
           <span>超讚</span>
         </div>
       </div>
       <div className="fpItem">
         <img
-          src="https://cf.bstatic.com/xdata/images/hotel/square600/13125860.webp?k=e148feeb802ac3d28d1391dad9e4cf1e12d9231f897d0b53ca067bde8a9d3355&o=&s=1"
+          src="http://localhost:3000/images/Elena_img/hotel15.jpg"
           alt=""
           className="fpImg"
         />
-        <span className="fpName">日月千禧酒店</span>
-        <span className="fpCity">台中市</span>
-        <span className="fpPrice">NTD $9600 起</span>
+        <span className="fpName">多野樂旅館</span>
+        <span className="fpCity">高雄市</span>
+        <span className="fpPrice">NTD $7000 起</span>
         <div className="fpRating">
-          <button>8.8</button>
-          <span>很棒</span>
+          <button>9.6</button>
+          <span>超讚</span>
+        </div>
+      </div>
+      <div className="fpItem">
+        <img
+          src="http://localhost:3000/images/Elena_img/hotel3.jpg"
+          alt=""
+          className="fpImg"
+        />
+        <span className="fpName">新北新莊凱悅嘉軒酒店</span>
+        <span className="fpCity">新北市</span>
+        <span className="fpPrice">NTD $5500 起</span>
+        <div className="fpRating">
+          <button>9.6</button>
+          <span>超讚</span>
         </div>
       </div>
       <div className="fpItem">
@@ -84,11 +51,11 @@ const FeaturedProperties = () => {
           alt=""
           className="fpImg"
         />
-        <span className="fpName">台北艾美酒店</span>
-        <span className="fpCity">台北市</span>
-        <span className="fpPrice">NTD $9100 起</span>
+        <span className="fpName">墾丁H會館</span>
+        <span className="fpCity">屏東縣</span>
+        <span className="fpPrice">NTD $9700 起</span>
         <div className="fpRating">
-          <button>8.9</button>
+          <button>9.8</button>
           <span>超讚</span>
         </div>
       </div>
