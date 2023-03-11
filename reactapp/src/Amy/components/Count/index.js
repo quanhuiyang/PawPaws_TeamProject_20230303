@@ -1,65 +1,59 @@
-import { Drawer, List, ListItemButton, ListItemText } from '@mui/material'
-import { useUIContext } from '../../context/UI'
-import { DrawerCloseButton } from '../../../styles/Bar/index'
-import CloseIcon from '@mui/icons-material/Close'
-import { useNavigate } from 'react-router-dom'
+import { IconButton, Typography } from "@mui/material"
+import { Box } from "@mui/system"
+import AddIcon from '@mui/icons-material/Add'
+import RemoveIcon from "@mui/icons-material/Remove"
+// import { useState } from "react";
+// import { clamp } from "./Clamp";
+import { shades } from "../../../styles/theme"
+import { useCart } from '../../hooks/useCart'
 
-export default function AppDrawer() {
-  const { drawerOpen, setDrawerOpen } = useUIContext()
-  const navigate = useNavigate()
+export default function Count({id, quantity}){
+    // const clampValue = clamp(1, 10);
+    // const [value, setValue] = useState(1);
 
-  return (
-    <>
-      {drawerOpen && (
-        <DrawerCloseButton onClick={() => setDrawerOpen(false)}>
-          <CloseIcon
-            className="testing"
-            sx={{
-              ontSize: '2.5rem',
-              color: '#fee9d0',
+    const {plusOne, minusOne} = useCart();
+
+    return (
+      <>
+      <Box display="flex">
+        <IconButton
+          size="small"
+          sx={{
+            borderRadius: 0,
+            background: `${shades.primary[500]}`,
+          }}
+          onClick={() => {
+            minusOne(id)
+            // setValue(clampValue(value - 1))
+          }
+          }
+        >
+          <RemoveIcon />
+        </IconButton>
+        <Typography
+          variant="body2"
+          sx={{
+            border: `1px solid ${shades.primary[500]}`,
+            p: 2,
+            background: `${shades.beige_light[100]}`,
+          }}
+        >
+          {quantity}
+        </Typography>
+        <IconButton
+          size="small"
+          sx={{
+            borderRadius: 0,
+            background: `${shades.primary[500]}`,
+          }}
+          onClick={() => {
+            plusOne(id)
+            //setValue(clampValue(value + 1))
             }}
-          />
-        </DrawerCloseButton>
-      )}
-      <Drawer open={drawerOpen}>
-        <List>
-          <ListItemButton
-            onClick={() => {
-              navigate('home')
-            }}
-          >
-            <ListItemText align="center">首頁</ListItemText>
-          </ListItemButton>
-          <ListItemButton
-            onClick={() => {
-              navigate('shop')
-            }}
-          >
-            <ListItemText align="center">寵物商城</ListItemText>
-          </ListItemButton>
-          <ListItemButton
-            onClick={() => {
-              navigate('hotel')
-            }}
-          >
-            <ListItemText align="center">寵物旅館</ListItemText>
-          </ListItemButton>
-          <ListItemButton
-            onClick={() => {
-              navigate('activity')
-            }}
-          >
-            <ListItemText align="center">寵物活動</ListItemText>
-          </ListItemButton>
-          <ListItemButton
-            onClick={() => {
-              navigate('logout')
-            }}
-          >
-            <ListItemText align="center">登出</ListItemText>
-          </ListItemButton>
-        </List>
-      </Drawer>
-    </>
-  )
+        >
+          <AddIcon />
+        </IconButton>
+      </Box>
+      </>
+    );
 }
