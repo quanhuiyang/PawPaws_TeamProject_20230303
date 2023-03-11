@@ -305,13 +305,15 @@ export default function Edit() {
                 onChange={(e) => handleDistrictChange(e.target.value)}
                 value={district}
               >
-                {districts[city].map((d, i) => {
-                  return (
-                    <option key={i} value={d}>
-                      {d}
-                    </option>
-                  )
-                })}
+                {districts &&
+                  districts[city].length > 0 &&
+                  districts[city].map((d, i) => {
+                    return (
+                      <option key={i} value={d}>
+                        {d}
+                      </option>
+                    )
+                  })}
               </select>
               <div className="group">
                 <input

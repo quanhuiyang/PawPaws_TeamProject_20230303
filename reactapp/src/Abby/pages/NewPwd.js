@@ -57,6 +57,15 @@ function NewPwd() {
   async function handleSubmit(e) {
     e.preventDefault()
 
+    if (data.newPassword !== data.newPassword2) {
+      Swal.fire({
+        title: '兩次輸入的密碼不一致',
+        showConfirmButton: false,
+        timer: 1500,
+      })
+      return
+    }
+
     const response = await AuthService.changePassword({
       data,
     })

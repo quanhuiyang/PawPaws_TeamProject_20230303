@@ -69,15 +69,12 @@ router.post('/checklogin', async (req, res, next) => {
 
 //會員註冊
 router.post('/register', async (req, res, next) => {
-  console.log('req', req.body.email)
-  console.log('req', req.body.password)
-  const { email, password, name } = req.body
-  const sql = `INSERT INTO members ( email, password, name ) VALUES (?,?,?)`
+  const { email, password } = req.body
+  const sql = `INSERT INTO members ( email, password ) VALUES (?,?)`
   const checkSql = `SELECT * FROM members WHERE email = ?`
   try {
     const check = await db.query(checkSql, [email])
-    // console.log('check', check)
-    console.log('check[0]', check[0].length)
+
     if (check[0].length > 0) {
       res.json({
         state: false,
@@ -85,7 +82,7 @@ router.post('/register', async (req, res, next) => {
         user: check[0],
       })
     } else {
-      const create = await db.query(sql, [email, password, name])
+      const create = await db.query(sql, [email, password])
       if (create) {
         res.json({
           state: true,
@@ -136,8 +133,6 @@ router.put('/update', async function (req, res) {
 
 // forget password token
 router.post('/forgetPassword', async function (req, res) {
-  console.log('req', req.body.email)
-
   const sql = 'SELECT * FROM members WHERE email=?'
   const [rows] = await db.query(sql, [req.body.email])
   if (rows.length < 1) {
@@ -147,7 +142,6 @@ router.post('/forgetPassword', async function (req, res) {
     return res.json(output)
   } else {
     const row = rows[0]
-    console.log('row', row)
 
     const output = {}
     output.error = ''
@@ -169,8 +163,6 @@ router.post('/forgetPassword', async function (req, res) {
 
     output.token = token
 
-    console.log('token', token)
-
     res.json(output)
   }
   // req.session.userId = result.sid
@@ -188,12 +180,10 @@ router.post('/changePassword', async function (req, res) {
       if (error) {
         console.log({ error })
       }
-      console.log(decoded)
 
       const email = decoded.account
 
       if (req.body.data?.oldPassword) {
-        console.log('oldPassword', req.body.data.oldPassword)
         const sql =
           'UPDATE `members` SET `password`=? WHERE `email`=? AND `password`=?'
         const { newPassword } = req.body.data
