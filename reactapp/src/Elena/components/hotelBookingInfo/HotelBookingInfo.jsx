@@ -372,7 +372,7 @@ export default function HotelBookingInfo() {
           <button
             className="hotelBookingInfoBtn"
             onClick={() => {
-              navigate(`/hotel/hotelbookingsuccess`)
+              navigate(`/hotel/hotelpayment`)
             }}
           >
             確認預訂
