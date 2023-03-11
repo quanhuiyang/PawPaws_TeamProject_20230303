@@ -6,7 +6,8 @@ import Bar from './Amy/components/Bar/index'
 import Promotion from './Amy/components/Promotion/index'
 import AppDrawer from './Amy/components/Drawer/index'
 import { UIProvider } from './Amy/context/UI/index'
-import Cart from '../src/Amy/components/Cart/index'
+import { CartProvider } from './Amy/hooks/useCart'
+import Cart from '../src/Amy/components/Cart'
 
 import Hotel from './pages/Hotel'
 import Mainphoto from './Elena/components/mainphoto/Mainphoto'
@@ -52,6 +53,7 @@ function App() {
           sx={{ background: '#fff5ea', margin: '0' }}
         >
           <UIProvider>
+          <CartProvider>
             <Promotion sx={{ position: 'fixed' }} />
             <Bar sx={{ position: 'fixed' }} />
 
@@ -65,10 +67,7 @@ function App() {
                 {/* ** Amy ** */}
                 {/* http://localhost:3000/shop */}
                 <Route path="/shop" element={<Shop />} />
-                {/* <Route path="/collection" element={<Collection />} /> */}
-                {/* http:localhost:3001/cart */}
-                {/* <Route path="/cart" element={<Cart/>} /> */}
-                {/* http:localhost:3001/collection */}
+
 
                 {/* ** Elena ** */}
                 {/* http://localhost:3000/hotel */}
@@ -109,6 +108,7 @@ function App() {
             <Footer />
             <AppDrawer />
             <Cart />
+            </CartProvider>
           </UIProvider>
         </Container>
       </ThemeProvider>

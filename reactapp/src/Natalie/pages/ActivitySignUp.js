@@ -34,21 +34,12 @@ function ActivitySignUp() {
     setAuser({ ...auser, [e.target.name]: e.target.value })
   }
 
-  const handleClick = () => {
-    Swal.fire({
-      icon: 'success',
-      title: '報名成功!',
-      showConfirmButton: false,
-      timer: 1500,
-    })
-  }
   const handleSubmit = (e) => {
     e.preventDefault()
     axios
       .post('http://localhost:3000/activity/participants', auser)
       .then((res) => {
-        if (res.success) {
-          handleClick() // 提交成功後顯示提示框
+        if (res.data) {
           console.log(res.data)
           setAuser({
             // 清空表單數據
@@ -57,13 +48,23 @@ function ActivitySignUp() {
             phone: '',
             address: '',
           })
+          handleClick() // 提交成功後顯示提示框
         }
       })
       .catch((err) => {
         console.log(err)
       })
   }
+
   //彈出
+  const handleClick = () => {
+    Swal.fire({
+      icon: 'success',
+      title: '報名成功!',
+      showConfirmButton: false,
+      timer: 1500,
+    })
+  }
 
   return (
     <div>
@@ -85,6 +86,12 @@ function ActivitySignUp() {
                   <h6>活動名稱</h6>
                   <h6>{item.title}</h6>
                 </InputBox>
+                <input
+                  type="hidden"
+                  name="activity_id"
+                  value={item.activity_id}
+                  onChange={handleUserChange}
+                />
 
                 <InputBox>
                   <p>姓名</p>
@@ -130,9 +137,9 @@ function ActivitySignUp() {
                   />
                 </InputBox>
                 <Btn>
-                  <Link to={`/activity/detail/${activity_id}`}>
-                    <button type="submit">送出</button>
-                  </Link>
+                  {/* <Link to={`/activity/detail/${activity_id}`}> */}
+                  <button type="submit">送出</button>
+                  {/* </Link> */}
                 </Btn>
               </form>
             </Form>

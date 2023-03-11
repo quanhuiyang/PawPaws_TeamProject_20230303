@@ -237,7 +237,7 @@ router.post('/changePassword', async function (req, res) {
         } else {
           res.json({
             state: false,
-            message: `修改已取消！`,
+            message: `修改失敗！`,
           })
         }
       }

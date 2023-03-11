@@ -1,14 +1,18 @@
-import { useMediaQuery, Grid, Container } from "@mui/material";
-import { useTheme } from "@mui/material/styles";
-import { products } from "../../data/index";
+import { useMediaQuery, Grid, Container } from "@mui/material"
+import { useTheme } from "@mui/material/styles"
+// import { products } from "../../data/index";
 import SingleProduct from "./SingleProduct";
 import SingleProductDesktop from "./SingleProductDesktop";
-
+import AppPagination from "../Pagination/index"
+import { useState } from "react";
 
 export default function Product(){
 
 	const theme = useTheme();
 	const matches = useMediaQuery(theme.breakpoints.down("md"));
+
+	//分頁設定
+	const [products, setProducts] = useState([]);
 
 	//Product參數設定
 	const renderProducts = products.map( product => (
@@ -36,6 +40,7 @@ export default function Product(){
 			>
 				{ renderProducts }
 			</Grid>
+			<AppPagination setProducts={(p)=> setProducts(p)}/>
 		</Container>
 	);
 

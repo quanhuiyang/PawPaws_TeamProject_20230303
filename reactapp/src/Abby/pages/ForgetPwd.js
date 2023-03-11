@@ -34,7 +34,7 @@ function ForgetPwd() {
       })
     } else {
       Swal.fire({
-        title: '您輸入的email不正確',
+        title: '您輸入的Email不正確',
         showConfirmButton: true,
       })
     }
@@ -42,10 +42,10 @@ function ForgetPwd() {
     setTimeout(() => {
       emailjs
         .sendForm(
-          'service_a5s2e7t',
-          'template_pu0w9xn',
+          process.env.REACT_APP_SERVICE,
+          process.env.REACT_APP_TEMPLATE,
           form.current,
-          'oEcYPjwbY8AMtRWeB'
+          process.env.REACT_APP_KEY
         )
         .then(
           (result) => {

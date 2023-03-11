@@ -1,11 +1,10 @@
 import { useEffect, useState } from 'react'
 import './members.scss'
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import qs from 'qs'
 import AuthService from '../auth.service'
 import md5 from 'md5'
 import Swal from 'sweetalert2'
-import { useNavigate } from 'react-router-dom'
 import { borderRadius, style } from '@mui/system'
 
 const LinkClassName = {
@@ -68,7 +67,7 @@ function NewPwd() {
         showConfirmButton: false,
         timer: 1500,
       }).then(() => {
-        navigate('/MemberInfo')
+        navigate('/members')
       })
     } else {
       Swal.fire({
@@ -139,11 +138,17 @@ function NewPwd() {
               </div>
             </div>
             <div className="form-submit-area">
-              <button type="button" className="rewrite-btn twoBtns">
-                <Link to="/memberinfo" style={LinkClassName}>
+              {token === '' ? (
+                <button
+                  type="button"
+                  className="rewrite-btn twoBtns"
+                  onClick={() => navigate('/memberInfo')}
+                >
                   回上一頁
-                </Link>
-              </button>
+                </button>
+              ) : (
+                ''
+              )}
 
               <button type="submit" className="join-btn twoBtns">
                 儲存送出

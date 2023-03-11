@@ -129,7 +129,6 @@ form input{
   background: #8DD9CE;
   color: #fff;
   font-size: 13px;
-  margin-left: 10px
 }
 .rewrite-btn{
   font-size: 13px;
@@ -175,7 +174,10 @@ form input{
 
 .form-submit-area button{
   padding: 10px 40px;
-  margin: 0px 0px 0px;
+  font-size: 16px;
+}
+.form-submit-area{
+  padding: 0 80px;
 }
 
 .show-password-icon{
@@ -229,17 +231,15 @@ form input{
       padding: 30px 80px 15px 80px;
     }
 
-    .form-submit-area{
-      padding-left: 80px;
-      padding-right: 80px;
-    }
+  
     button.twoBtns{
-      width: 46%;
+      width: 100%;
       padding-left: 0;
       padding-right: 0;
     }
     .loginArea{
       padding: 0 80px;
     }
+
   }
 
