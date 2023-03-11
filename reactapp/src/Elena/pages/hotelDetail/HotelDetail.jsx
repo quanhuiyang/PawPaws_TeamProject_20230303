@@ -98,7 +98,14 @@ function HotelDetail() {
           </div>
         )}
         <div className="hotelWrapper">
-          <button className="bookNow">預訂</button>
+          <button
+            className="bookNow"
+            onClick={() => {
+              navigate(`/hotel/hotelbooking/${hotel.h_id}`)
+            }}
+          >
+            預訂
+          </button>
           <h1 className="hotelTitle">{hotel.h_name}</h1>
           <div className="hotelAddress">
             <FontAwesomeIcon icon={faLocationDot} />
@@ -141,7 +148,14 @@ function HotelDetail() {
               <h2>
                 <b>NTD${hotel.h_cheapestPrice}</b> (1 晚)
               </h2>
-              <button>預訂!</button>
+              <button
+                className="bookNow1"
+                onClick={() => {
+                  navigate(`/hotel/hotelbooking/${hotel.h_id}`)
+                }}
+              >
+                預訂
+              </button>
             </div>
           </div>
         </div>

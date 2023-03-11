@@ -12,6 +12,7 @@ import Hotel from './pages/Hotel'
 import Mainphoto from './Elena/components/mainphoto/Mainphoto'
 import HotelDetail from './Elena/pages/hotelDetail/HotelDetail'
 import HotelList from './Elena/pages/hotelList/HotelList'
+import HotelBooking from './Elena/pages/hotelBooking/HotelBooking'
 
 import Activity from './pages/Activity'
 import Collection from './pages/Collection'
@@ -77,6 +78,7 @@ function App() {
                   path="/hotel/hoteldetail/:id?"
                   element={<HotelDetail />}
                 />
+                <Route path="/hotel/hotelbooking/" element={<HotelBooking />} />
 
                 {/* ** Natalie ** */}
                 {/* http://localhost:3000/activity */}
