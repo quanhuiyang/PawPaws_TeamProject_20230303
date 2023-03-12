@@ -5,6 +5,8 @@ import './paymentForm.css'
 // import { Link, useNavigate } from 'react-router-dom'
 
 export default class PaymentForm extends React.Component {
+  // navigate = useNavigate()
+
   state = {
     cvc: '',
     expiry: '',
@@ -22,7 +24,6 @@ export default class PaymentForm extends React.Component {
 
     this.setState({ [name]: value })
   }
-  // navigate = useNavigate()
 
   render() {
     return (
@@ -70,7 +71,7 @@ export default class PaymentForm extends React.Component {
         {/* <button
           className="hotelPaymentBtn"
           onClick={() => {
-            navigate(`/hotel/hotelbookingsuccess`)
+            navigate(`/hotel/hotelpaymentsuccess`)
           }}
         >
           確認付款
