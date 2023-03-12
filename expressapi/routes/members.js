@@ -100,6 +100,7 @@ router.post('/register', async (req, res, next) => {
   }
 })
 
+//會員編輯頁面
 router.put('/update', async function (req, res) {
   console.log('req', req.body.birthday)
 
@@ -107,7 +108,12 @@ router.put('/update', async function (req, res) {
 
   const sql =
     'UPDATE `members` SET `name`=? ,`birthday`=?,`address`=?, `mobile`=? WHERE `email`=?'
-  const { name, birthday, address, email, mobile } = req.body
+  let { name, birthday, address, email, mobile } = req.body
+
+  if (address === ',,') {
+    address = ''
+  }
+
   const [result] = await db.query(sql, [name, birthday, address, mobile, email])
 
   output.result = result
@@ -131,7 +137,7 @@ router.put('/update', async function (req, res) {
   // req.session.userId = result.sid
 })
 
-// forget password token
+//忘記密碼 token
 router.post('/forgetPassword', async function (req, res) {
   const sql = 'SELECT * FROM members WHERE email=?'
   const [rows] = await db.query(sql, [req.body.email])
@@ -168,7 +174,7 @@ router.post('/forgetPassword', async function (req, res) {
   // req.session.userId = result.sid
 })
 
-// change password
+// 修改新密碼
 
 router.post('/changePassword', async function (req, res) {
   console.log('changePassword req', req.body.data)

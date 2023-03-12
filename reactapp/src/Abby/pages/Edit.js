@@ -135,7 +135,7 @@ export default function Edit() {
     const birthday = new Date(user.birthday)
 
     let addressAll = []
-    if (user.address) {
+    if (user.address && user.address.trim()) {
       addressAll = user.address.split(',')
       handleCityChange(addressAll[0])
       handleDistrictChange(addressAll[1])
@@ -146,7 +146,7 @@ export default function Edit() {
     setEmail(user.email || '')
     setUserName(user.name || '')
     setMobile(user.mobile || '')
-    if (user.birthday !== '1899-11-29T16:00:00.000Z') {
+    if (user.birthday !== null) {
       setYear(birthday.getFullYear() || '')
       setMonth(birthday.getMonth() + 1 || '')
       setDay(birthday.getDate() || '')

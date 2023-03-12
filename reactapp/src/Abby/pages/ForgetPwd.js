@@ -25,7 +25,6 @@ function ForgetPwd() {
       email: email,
     })
 
-    
     if (response.data.state) {
       setToken(response.data.token)
       Swal.fire({
