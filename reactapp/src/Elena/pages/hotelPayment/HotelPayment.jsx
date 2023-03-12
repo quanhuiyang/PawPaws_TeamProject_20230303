@@ -2,6 +2,7 @@ import React from 'react'
 import './hotelPayment.css'
 import StateBar from '../../../Elena/components/stateBar/StateBar'
 import { Link, useNavigate } from 'react-router-dom'
+import PaymentForm from '../../components/paymentForm/PaymentForm'
 
 function HotelPayment() {
   const navigate = useNavigate()
@@ -9,7 +10,8 @@ function HotelPayment() {
   return (
     <>
       <StateBar />
-      <div className="hotelPaymentContainer">
+      <PaymentForm />
+      {/* <div className="hotelPaymentContainer">
         <div className="customerInfo">
           <div>飯店名稱: 台北君悅酒店</div>
           <div>訂單編號: HTAIPEIGHT202303220001</div>
@@ -52,7 +54,7 @@ function HotelPayment() {
         >
           確認付款
         </button>
-      </div>
+      </div> */}
     </>
   )
 }
