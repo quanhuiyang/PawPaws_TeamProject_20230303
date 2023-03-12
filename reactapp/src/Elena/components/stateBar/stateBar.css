@@ -7,8 +7,8 @@
 .stateItem {
   display: flex;
   align-items: center;
-  font-size: 16px;
-  color: #8dd9ce;
+  font-size: 18px;
+  color: #41c4b0;
 }
 
 .stateItem :hover {
