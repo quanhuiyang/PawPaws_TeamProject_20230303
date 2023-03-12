@@ -1,14 +1,14 @@
 import { useState } from 'react'
-import HeaderForm from '../components/HeaderForm'
-import Edit from './Edit'
-import Order from './Order'
+import Edit from '../components/Edit'
+import Order from '../components/Order'
+import myCollection from '../components/myCollection'
+
 
 export default function MemberInfo() {
   const [page, setPage] = useState(0)
 
   return (
     <>
-     
       <div className="container">
         <div className="formHeader">
           <button
@@ -32,6 +32,9 @@ export default function MemberInfo() {
         </div>
         {page === 0 && <Edit />}
         {page === 1 && <Order />}
+        {page === 2 && <myCollection />}
+
+       
       </div>
     </>
   )
