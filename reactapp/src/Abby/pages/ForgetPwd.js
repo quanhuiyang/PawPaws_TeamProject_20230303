@@ -6,6 +6,7 @@ import Swal from 'sweetalert2'
 import emailjs from '@emailjs/browser'
 import AuthService from '../auth.service'
 
+
 const forgetpwdTitle = {
   margin: 0,
 }

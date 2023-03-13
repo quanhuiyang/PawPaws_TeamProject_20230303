@@ -10,13 +10,15 @@ button{
 }
 .formHeader{
     display: flex;
-    max-width: 600px;
+    // max-width: 600px;
     margin: 0;
-    width: 90%;
+    // width: 90%;
     margin: auto;
+    // width: 600px;
   }
   .formHeader button{
     flex: 0 0 25%;
+    max-width: 150px;
     font-size: 16px;
     border: 1px solid #8DD9CE;
     border-bottom: none;
@@ -79,6 +81,9 @@ button{
     }
     .profileArea button{   
       font-size: 16px;
+    }
+    .formHeader{
+      width: 600px;
     }
 
   }

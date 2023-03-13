@@ -84,7 +84,7 @@ form input{
 }
 
 .form-area-edit{
-  width: 90%;
+  // width: 90%;
   margin: auto;
   border: 1px solid #8DD9CE;
   border-radius: 0px 10px 0px 0px;
@@ -224,7 +224,6 @@ form input{
 
   @media screen and (min-width:768px){
     .forgetpwd-btn{
-      padding-left: 15px;
       font-size: 18px;
     }
     .form-body{

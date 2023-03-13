@@ -240,4 +240,15 @@ router.post('/changePassword', async function (req, res) {
     }
   )
 })
+
+router.get('/getActivityData/:sid', async (req, res) => {
+  const sid = req.params.sid
+
+  const sql = 'SELECT * FROM `participants` WHERE sid=?;'
+  const [rows] = await db.query(sql, [sid])
+
+  return res.json(rows)
+})
+
+// http://localhost:3000/members/getActivityData/2
 module.exports = router
