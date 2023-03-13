@@ -20,6 +20,10 @@
   cursor: pointer;
 }
 
+.displayRight {
+  justify-content: flex-end;
+}
+
 .hotelPaymentContainer .hotelPaymentBtn {
   margin: 120px 300px;
   position: relative;

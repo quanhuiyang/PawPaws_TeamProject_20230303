@@ -1,82 +1,83 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Cards from 'react-credit-cards'
 import './paymentForm.scss'
 import './paymentForm.css'
-// import { Link, useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import { width } from '@mui/system'
 
-export default class PaymentForm extends React.Component {
-  // navigate = useNavigate()
+export default function PaymentForm() {
+  const navigate = useNavigate()
 
-  state = {
+  const [credit, setCredit] = useState({
     cvc: '',
     expiry: '',
-    focus: '',
     name: '',
     number: '',
+    focus: '',
+  })
+
+  console.log('credit', credit)
+  const handleInputFocus = (e) => {
+    setCredit({ ...credit, focus: e.target.name })
   }
 
-  handleInputFocus = (e) => {
-    this.setState({ focus: e.target.name })
-  }
-
-  handleInputChange = (e) => {
+  const handleInputChange = (e) => {
     const { name, value } = e.target
 
-    this.setState({ [name]: value })
+    setCredit({ ...credit, [name]: value })
   }
-
-  render() {
-    return (
-      <div className="PaymentForm">
-        <Cards
-          number={this.state.number}
-          name={this.state.name}
-          expiry={this.state.expiry}
-          cvc={this.state.cvc}
-          // focused={this.state.focus}
+  return (
+    <div className="PaymentForm">
+      <Cards
+        number={credit.number}
+        name={credit.name}
+        expiry={credit.expiry}
+        cvc={credit.cvc}
+        // focused={credit.focus}
+      />
+      <form>
+        <input
+          type="tel"
+          name="number"
+          placeholder="Card Number"
+          maxLength={16}
+          onChange={handleInputChange}
+          onFocus={handleInputFocus}
         />
-        <form>
-          <input
-            type="tel"
-            name="number"
-            placeholder="Card Number"
-            maxLength={16}
-            onChange={this.handleInputChange}
-            onFocus={this.handleInputFocus}
-          />
-          <input
-            type="text"
-            name="name"
-            placeholder="Card Hodlder's Name"
-            onChange={this.handleInputChange}
-            onFocus={this.handleInputFocus}
-          />
-          <input
-            type="tel"
-            name="expiry"
-            placeholder=" MM / YY"
-            maxLength={4}
-            onChange={this.handleInputChange}
-            onFocus={this.handleInputFocus}
-          />
-          <input
-            type="tel"
-            name="cvc"
-            placeholder="ex:345"
-            maxLength={3}
-            onChange={this.handleInputChange}
-            onFocus={this.handleInputFocus}
-          />
-        </form>
-        {/* <button
-          className="hotelPaymentBtn"
-          onClick={() => {
-            navigate(`/hotel/hotelpaymentsuccess`)
-          }}
+        <input
+          type="text"
+          name="name"
+          placeholder="Card Hodlder's Name"
+          onChange={handleInputChange}
+          onFocus={handleInputFocus}
+        />
+        <input
+          type="tel"
+          name="expiry"
+          placeholder=" MM / YY"
+          maxLength={4}
+          onChange={handleInputChange}
+          onFocus={handleInputFocus}
+        />
+        <input
+          type="tel"
+          name="cvc"
+          placeholder="ex:345"
+          maxLength={3}
+          onChange={handleInputChange}
+          onFocus={handleInputFocus}
+        />
+      </form>
+      <div
+        style={{ display: 'flex', justifyContent: 'flex-end', width: '100%' }}
+      >
+        <button
+          className="hotelPaymentBtn displayRight"
+          onClick={() => navigate(`/hotel/hotelbookingsuccess`)}
         >
           確認付款
-        </button> */}
+        </button>
       </div>
-    )
-  }
+    </div>
+  )
 }

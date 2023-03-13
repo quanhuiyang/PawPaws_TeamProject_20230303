@@ -11,8 +11,9 @@ function HotelPayment() {
     <>
       <StateBar />
       <PaymentForm />
-      <div className="hotelPaymentContainer">
-        {/* <div className="customerInfo">
+      {/* <div className="hotelPaymentContainer"> */}
+      {/* <div style={{ postition: 'relative' }}> */}
+      {/* <div className="customerInfo">
           <div>飯店名稱: 台北君悅酒店</div>
           <div>訂單編號: HTAIPEIGHT202303220001</div>
           <div>訂單金額: NTD$ 9900</div>
@@ -46,15 +47,15 @@ function HotelPayment() {
             <input type="text" placeholder="222" />
           </p>
         </div> */}
-        <button
-          className="hotelPaymentBtn"
-          onClick={() => {
-            navigate(`/hotel/hotelbookingsuccess`)
-          }}
-        >
-          確認付款
-        </button>
-      </div>
+      {/* <button
+        className="hotelPaymentBtn"
+        onClick={() => {
+          navigate(`/hotel/hotelbookingsuccess`)
+        }}
+      >
+        確認付款
+      </button> */}
+      {/* </div> */}
     </>
   )
 }
