@@ -42,7 +42,9 @@ const SearchBar = ({ type }) => {
   }
 
   const handleSearch = () => {
-    navigate('/hotel/hotellist', { state: { destination, date, options } })
+    navigate(`/hotel/hotellist/?city=${destination}`, {
+      state: { destination, date, options },
+    })
   }
 
   return (
