@@ -28,6 +28,8 @@ function ActivitySignUp() {
     email: '',
     phone: '',
     address: '',
+    activity_id: `${activity_id}`,
+    sid: JSON.parse(localStorage.getItem('user')).sid,
   })
 
   const handleUserChange = (e) => {
@@ -138,7 +140,9 @@ function ActivitySignUp() {
                 </InputBox>
                 <Btn>
                   {/* <Link to={`/activity/detail/${activity_id}`}> */}
-                  <button type="submit">送出</button>
+                  <button type="submit" onClick={handleClick}>
+                    送出
+                  </button>
                   {/* </Link> */}
                 </Btn>
               </form>
@@ -200,6 +204,11 @@ const Btn = styled.div`
     font-weight: 600;
     color: #fff;
     text-align: center;
+    transition-duration: 0.4s;
+  }
+  &:hover {
+    background-color: #fff;
+    color: #8dd9ce;
   }
 `
 const InputBox = styled.div`

@@ -7,17 +7,17 @@ import { Splide, SplideSlide } from '@splidejs/react-splide'
 import '@splidejs/react-splide/css'
 import { useNavigate } from 'react-router-dom'
 import { Link } from 'react-router-dom'
-import styled from 'styled-components'
 
-function Acard(props) {
-  //進行解構
-  const { activity } = props
+//進行解構
+function AcardFilter(props) {
+  const { activities } = props
+  const keywordArray = [...activities]
   //照片導向詳細頁
   const navigate = useNavigate()
   const handleClick = (aid) => {
     navigate(`/activity/detail/${aid}`)
   }
-  console.log(activity)
+
   return (
     <div>
       <Splide
@@ -29,13 +29,13 @@ function Acard(props) {
           gap: '2rem',
         }}
       >
-        {activity &&
-          activity.length > 0 &&
-          activity.map((item) => (
+        {keywordArray &&
+          keywordArray.length > 0 &&
+          keywordArray.map((item) => (
             <SplideSlide key={item.activity_id}>
               <div className="acard">
                 <div className="heart">
-                  <Heartbtn activity={item.activity_id} />
+                  <Heartbtn activity={activities.activity_id} />
                 </div>
                 <img
                   src={
@@ -61,4 +61,4 @@ function Acard(props) {
   )
 }
 
-export default Acard
+export default AcardFilter

@@ -64,8 +64,8 @@ function Activity() {
         <Acard activity={activity} />
         <Arrowbtn name={cardtitle[1]} />
         <Acard activity={activity} />
-        <Arrowbtn name={cardtitle[2]} />
-        <Acard activity={activity} />
+        {/* <Arrowbtn name={cardtitle[2]} />
+        <Acard activity={activity} /> */}
       </div>
     </div>
   )

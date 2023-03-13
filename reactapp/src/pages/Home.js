@@ -1,11 +1,14 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import Mainphoto from '../Elena/components/mainphoto/Mainphoto'
+import Acard from '../Natalie/components/Acard'
 
 function Home() {
   return (
     <>
       <Mainphoto />
+      {/* 商城 */}
       <Htitle>
         <h5>Pets Store</h5>
         <p>寵物商城</p>
@@ -19,7 +22,41 @@ function Home() {
       </Picture>
 
       <Btn>
+        <Link to={`/shop`}></Link>
         <button>看更多>></button>
+      </Btn>
+
+      {/* 旅館 */}
+      <Htitle>
+        <h5>Pets Hotels</h5>
+        <p>寵物旅館</p>
+      </Htitle>
+      <Line>
+        <hr />
+      </Line>
+
+      <Picture>
+        <img src="../images/Natalie_img/hp01.jpg" alt="AC06" />
+      </Picture>
+
+      <Btn>
+        <Link to={`/hotel`}></Link>
+        <button>看更多>></button>
+      </Btn>
+
+      {/* 寵物活動 */}
+      <Htitle>
+        <h5>Pets Hotels</h5>
+        <p>寵物活動</p>
+      </Htitle>
+      <Line>
+        <hr />
+      </Line>
+
+      <Btn>
+        <Link to={`/activity`}>
+          <button>看更多>></button>
+        </Link>
       </Btn>
     </>
   )
