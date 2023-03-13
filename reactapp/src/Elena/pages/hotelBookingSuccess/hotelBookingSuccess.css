@@ -4,3 +4,15 @@
   border: 1px solid #ccc;
   margin: 20px auto;
 }
+
+.bookingSuccessContainer h2 {
+  font-size: 30px;
+  color: blue;
+  margin: 10px 280px;
+}
+
+.bookingSuccessContainer h1 {
+  font-size: 30px;
+  color: blue;
+  margin: 10px 150px;
+}
