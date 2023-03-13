@@ -179,7 +179,7 @@ export default function HotelBookingInfo() {
                   <AccountCircleIcon />
                   {email}
                 </div>
-                <button
+                {/* <button
                   type="button"
                   className="member-button logoutBtn"
                   onClick={() => {
@@ -197,7 +197,7 @@ export default function HotelBookingInfo() {
                   }}
                 >
                   會員登出
-                </button>
+                </button> */}
               </div>
 
               <div className="group">
