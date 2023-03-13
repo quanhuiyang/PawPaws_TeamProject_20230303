@@ -1,0 +1,21 @@
+.hotelBookingHotel {
+  border: 1px solid #8dd9ce;
+  width: 650px;
+  height: 380px;
+  border-radius: 10px;
+  text-align: start;
+  display: flex;
+  align-items: top;
+  justify-content: space-around;
+  margin-top: 50px;
+  background-color: white;
+}
+
+.hotelFormContainer {
+  display: flex;
+  align-items: start;
+}
+
+.hotelFormDetail {
+  padding: 10px;
+}
