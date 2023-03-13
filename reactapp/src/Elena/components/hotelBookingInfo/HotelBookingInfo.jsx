@@ -209,20 +209,6 @@ export default function HotelBookingInfo() {
                   placeholder="請輸入姓名"
                   onChange={(e) => setUserName(e.target.value)}
                 />
-                {/** 
-                <div className="group">
-                  <input type="text" name="email" id="email" placeholder="請輸入email" required />
-                </div>
-                */}
-                {localStorage.getItem('googleAuth') ? (
-                  ''
-                ) : (
-                  <span>
-                    <Link to="/NewPwd" style={{ textDecoration: 'none' }}>
-                      設定新密碼
-                    </Link>
-                  </span>
-                )}
 
                 <div className="group">
                   <select
