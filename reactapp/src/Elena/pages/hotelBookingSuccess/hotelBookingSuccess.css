@@ -16,3 +16,18 @@
   color: blue;
   margin: 10px 150px;
 }
+
+.hotelSuccessBtn {
+  width: 100px;
+  height: 70px;
+  left: 35%;
+  margin-inline: 20px;
+  position: relative;
+
+  background-color: #ffb544;
+  color: white;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}

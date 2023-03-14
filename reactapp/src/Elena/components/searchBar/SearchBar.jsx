@@ -55,7 +55,7 @@ const SearchBar = ({ type }) => {
           <input
             list="areaList"
             type="text"
-            placeholder="您想去哪裡玩呢?"
+            placeholder="您想去哪一個城市玩呢?"
             name="area"
             id="area"
             className="headerSearchInput"

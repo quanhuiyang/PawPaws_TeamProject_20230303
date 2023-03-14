@@ -11,8 +11,8 @@ function HotelBookingSuccess() {
         <h2>恭喜你完成預訂</h2>
         <h1>訂單代號:HGHT2023032200001</h1>
         <HotelBookingHotel />
-        <button>查詢訂單</button>
-        <button>回飯店首頁</button>
+        <button className="hotelSuccessBtn">查詢訂單</button>
+        <button className="hotelSuccessBtn">回飯店首頁</button>
       </div>
     </>
   )
