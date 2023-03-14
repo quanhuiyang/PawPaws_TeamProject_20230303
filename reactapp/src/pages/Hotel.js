@@ -1,5 +1,5 @@
 import './Hotel.scss'
-import Mainphoto from '../Elena/components/mainphoto/Mainphoto'
+import MainphotoHotel from '../Elena/components/mainphotoHotel/MainphotoHotel'
 import SearchBar from '../Elena/components/searchBar/SearchBar'
 import Featured from '../Elena/components/featured/Featured'
 import PropertyList from '../Elena/components/propertyList/PropertyList'
@@ -8,7 +8,7 @@ import FeaturedProperties from '../Elena/components/featuredProperties/FeaturedP
 function Hotel() {
   return (
     <>
-      <Mainphoto />
+      <MainphotoHotel />
       <SearchBar />
       <div className="hotelConatiner">
         <h1 className="homeTitle">旅遊城市</h1>
