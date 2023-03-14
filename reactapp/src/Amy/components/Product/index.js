@@ -31,6 +31,7 @@ export default function Product(){
 
 	return(
 		<Container>
+			<AppPagination setProducts={(p)=> setProducts(p)}/>
 			<Grid
 			container
 			spacing={{xs:2, md:3}}
@@ -40,7 +41,7 @@ export default function Product(){
 			>
 				{ renderProducts }
 			</Grid>
-			<AppPagination setProducts={(p)=> setProducts(p)}/>
+			
 		</Container>
 	);
 

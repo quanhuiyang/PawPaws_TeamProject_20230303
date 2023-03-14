@@ -53,7 +53,8 @@ export default function Cart() {
 
 
 		if(result.state){
-			// true 清空/ 轉向
+			// true 
+      //TODO 清空/ 轉向
 		}
     console.log('result', result.state)
   }
@@ -195,9 +196,8 @@ export default function Cart() {
 //TODO
 // SELECT * FROM `s_order` WHERE `s_order_user_id` = 1076;
 // SELECT * FROM `s_order_detail` WHERE `s_order_id`='167872153862858';
-//SELECT o.s_order_id,m.name,m.email,m.mobile,m.address,o.s_order_total  
+// SELECT o.s_order_id,m.name,m.email,m.mobile,m.address,o.s_order_total  
 
 // FROM `s_order` AS o JOIN `members` AS m 
 // ON o.`s_order_user_id` = m.`sid` 
-
 // WHERE o.`s_order_user_id` = 1076;
