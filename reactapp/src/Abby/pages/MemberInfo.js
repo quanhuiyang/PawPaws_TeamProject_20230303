@@ -1,7 +1,6 @@
 import { useState, useRef, useEffect } from 'react'
 import Edit from '../components/Edit'
 import Order from '../components/OrderList/Order'
-import Collection from '../components/Collection/Collection'
 
 export default function MemberInfo() {
   const [page, setPage] = useState(0)
@@ -18,7 +17,6 @@ export default function MemberInfo() {
       window.removeEventListener('resize', handleWindowResize)
     }
   }, [])
-
 
   return (
     <>
@@ -45,16 +43,9 @@ export default function MemberInfo() {
           >
             訂單查詢
           </button>
-          <button
-            className={`member-button ${page === 2 ? ' active' : ''}`}
-            onClick={() => setPage(2)}
-          >
-            我的收藏
-          </button>
         </div>
         {page === 0 && <Edit />}
         {page === 1 && <Order />}
-        {page === 2 && <Collection />}
       </div>
     </>
   )

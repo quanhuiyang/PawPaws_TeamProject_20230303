@@ -91,16 +91,6 @@ function NewPwd() {
   return (
     <>
       <div className="container">
-        {token === '' ? (
-          <div className="formHeader">
-            <button className="top-info-btn member-button">個人資訊</button>
-            <button className="top-order-btn member-button">訂單查詢</button>
-            <button className="top-likes-btn member-button">我的追蹤</button>
-          </div>
-        ) : (
-          ''
-        )}
-
         <form onSubmit={handleSubmit}>
           <input type="text" name="token" value={token} hidden />
           <div className="form-area-edit">
@@ -110,7 +100,7 @@ function NewPwd() {
                 <div className="group">
                   {token === '' ? (
                     <input
-                      type="password"
+                      type="text"
                       name="oldPassword"
                       placeholder="請輸入舊密碼"
                       onChange={(e) => {

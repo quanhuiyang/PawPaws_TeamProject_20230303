@@ -39,8 +39,6 @@ router.post('/login', async function (req, res) {
 
     output.token = token
 
-    console.log('token', token)
-
     res.json(output)
   }
   // req.session.userId = result.sid
@@ -102,8 +100,6 @@ router.post('/register', async (req, res, next) => {
 
 //會員編輯頁面
 router.put('/update', async function (req, res) {
-  console.log('req', req.body.birthday)
-
   const output = {}
 
   const sql =

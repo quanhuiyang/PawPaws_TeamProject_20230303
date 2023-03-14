@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import AuthService from '../../auth.service'
-import Collection from '../Collection/Collection'
 import ActivityOrder from './ActivityOrder'
 import HotelOrder from './HotelOrder'
 import ShopOrder from './ShopOrder'
