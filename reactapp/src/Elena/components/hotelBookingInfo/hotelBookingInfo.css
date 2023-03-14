@@ -8,21 +8,21 @@
 .hotelBookingMember {
   width: 600px;
   height: 500px;
-  margin-top: 50px;
   border-radius: 20px;
+  margin-top: 50px;
   margin-right: -100px;
 }
 
 .hotelBookingHotel {
-  border: 1px solid #8dd9ce;
   width: 650px;
-  height: 380px;
-  border-radius: 10px;
+  height: 500px;
+  margin-top: 50px;
+  border-radius: 20px;
+  border: 1px solid #8dd9ce;
   text-align: start;
   display: flex;
   align-items: top;
   justify-content: space-around;
-  margin-top: 50px;
   background-color: white;
 }
 
