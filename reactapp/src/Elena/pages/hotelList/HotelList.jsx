@@ -98,8 +98,8 @@ const HotelList = () => {
               <label>入住日期</label>
               <span onClick={() => setOpenDate(!openDate)}>{`${format(
                 date[0].startDate,
-                'MM/dd/yyyy'
-              )} to ${format(date[0].endDate, 'MM/dd/yyyy')}`}</span>
+                'yyyy/MM/dd'
+              )} to ${format(date[0].endDate, 'yyyy/MM/dd')}`}</span>
               {openDate && (
                 <DateRange
                   onChange={(item) => setDate([item.selection])}
