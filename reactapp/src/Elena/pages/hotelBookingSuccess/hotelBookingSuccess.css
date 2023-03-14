@@ -1,26 +1,26 @@
 .bookingSuccessContainer {
   width: 800px;
   height: 700px;
-  border: 1px solid #ccc;
-  margin: 20px auto;
+  /* border: 1px solid #ccc; */
+  margin: 50px auto;
 }
 
 .bookingSuccessContainer h2 {
   font-size: 30px;
   color: blue;
-  margin: 10px 280px;
+  margin: 20px 280px;
 }
 
 .bookingSuccessContainer h1 {
   font-size: 30px;
   color: blue;
-  margin: 10px 150px;
+  margin: 0px 150px;
 }
 
 .hotelSuccessBtn {
   width: 100px;
   height: 70px;
-  left: 35%;
+  left: 30%;
   margin-inline: 20px;
   position: relative;
 
