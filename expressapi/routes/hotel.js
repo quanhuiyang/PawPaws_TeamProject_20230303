@@ -12,6 +12,14 @@ router.get('/', async (req, res) => {
   const [rows] = await db.query(sql)
   res.json(rows)
 })
+router.get('/:city', async (req, res) => {
+  // console.log(process.env.DB_Password);
+  // res.send('hotel page');
+  const { city } = req.params
+  const sql = 'SELECT * FROM `hotel` WHERE h_city = ?'
+  const [rows] = await db.query(sql, [city])
+  res.json(rows)
+})
 
 // GET
 // 讀出某一個id hotel的資料

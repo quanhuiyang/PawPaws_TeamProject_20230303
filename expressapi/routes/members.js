@@ -72,7 +72,7 @@ router.post('/register', async (req, res, next) => {
   console.log('req', req.body.email)
   console.log('req', req.body.password)
   const { email, password, name } = req.body
-  const sql = `INSERT INTO members ( email, password, name ) VALUES (?,?,?)`
+  const sql = `INSERT INTO members ( email, password) VALUES (?,?)`
   const checkSql = `SELECT * FROM members WHERE email = ?`
   try {
     const check = await db.query(checkSql, [email])
@@ -85,7 +85,7 @@ router.post('/register', async (req, res, next) => {
         user: check[0],
       })
     } else {
-      const create = await db.query(sql, [email, password, name])
+      const create = await db.query(sql, [email, password])
       if (create) {
         res.json({
           state: true,

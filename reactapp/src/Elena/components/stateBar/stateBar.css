@@ -1,0 +1,20 @@
+.stateContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.stateItem {
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  color: #41c4b0;
+}
+
+.stateItem :hover {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  color: #ff755c;
+  cursor: pointer;
+}

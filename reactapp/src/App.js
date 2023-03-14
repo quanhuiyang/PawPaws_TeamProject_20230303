@@ -14,6 +14,8 @@ import Mainphoto from './Elena/components/mainphoto/Mainphoto'
 import HotelDetail from './Elena/pages/hotelDetail/HotelDetail'
 import HotelList from './Elena/pages/hotelList/HotelList'
 import HotelBooking from './Elena/pages/hotelBooking/HotelBooking'
+import HotelPayment from './Elena/pages/hotelPayment/HotelPayment'
+import HotelBookingSuccess from './Elena/pages/hotelBookingSuccess/HotelBookingSuccess'
 
 import Activity from './pages/Activity'
 import Collection from './pages/Collection'
@@ -53,61 +55,71 @@ function App() {
           sx={{ background: '#fff5ea', margin: '0' }}
         >
           <UIProvider>
-          <CartProvider>
-            <Promotion sx={{ position: 'fixed' }} />
-            <Bar sx={{ position: 'fixed' }} />
+            <CartProvider>
+              <Promotion sx={{ position: 'fixed' }} />
+              <Bar sx={{ position: 'fixed' }} />
 
-            <main style={{ minHeight: 600 }}>
-              <Routes>
-                {/* 設定路由 */}
-                {/* http://localhost:3000/home */}
-                <Route path="/" element={<Home />} />
-                <Route path="/home" element={<Home />} />
+              <main style={{ minHeight: 600 }}>
+                <Routes>
+                  {/* 設定路由 */}
+                  {/* http://localhost:3000/home */}
+                  <Route path="/" element={<Home />} />
+                  <Route path="/home" element={<Home />} />
 
-                {/* ** Amy ** */}
-                {/* http://localhost:3000/shop */}
-                <Route path="/shop" element={<Shop />} />
+                  {/* ** Amy ** */}
+                  {/* http://localhost:3000/shop */}
+                  <Route path="/shop" element={<Shop />} />
 
+                  {/* ** Elena ** */}
+                  {/* http://localhost:3000/hotel */}
+                  <Route path="/hotel" element={<Hotel />} />
+                  <Route path="/hotel/hotellist" element={<HotelList />} />
+                  <Route
+                    path="/hotel/hoteldetail/:id?"
+                    element={<HotelDetail />}
+                  />
+                  <Route
+                    path="/hotel/hotelbooking/"
+                    element={<HotelBooking />}
+                  />
+                  <Route
+                    path="/hotel/hotelpayment/"
+                    element={<HotelPayment />}
+                  />
+                  <Route
+                    path="/hotel/hotelbookingsuccess/"
+                    element={<HotelBookingSuccess />}
+                  />
 
-                {/* ** Elena ** */}
-                {/* http://localhost:3000/hotel */}
-                <Route path="/hotel" element={<Hotel />} />
-                <Route path="/hotel/hotellist" element={<HotelList />} />
-                <Route
-                  path="/hotel/hoteldetail/:id?"
-                  element={<HotelDetail />}
-                />
-                <Route path="/hotel/hotelbooking/" element={<HotelBooking />} />
+                  {/* ** Natalie ** */}
+                  {/* http://localhost:3000/activity */}
+                  <Route path="/activity" element={<Activity />} />
+                  <Route
+                    path="/activity/detail/:activity_id"
+                    element={<ActivityDetail />}
+                  />
+                  <Route
+                    path="/activity/signup/:activity_id"
+                    element={<ActivitySignUp />}
+                  />
+                  <Route path="/collection" element={<Collection />} />
 
-                {/* ** Natalie ** */}
-                {/* http://localhost:3000/activity */}
-                <Route path="/activity" element={<Activity />} />
-                <Route
-                  path="/activity/detail/:activity_id"
-                  element={<ActivityDetail />}
-                />
-                <Route
-                  path="/activity/signup/:activity_id"
-                  element={<ActivitySignUp />}
-                />
-                <Route path="/collection" element={<Collection />} />
+                  {/* ** Abby ** */}
+                  {/* http://localhost:3000/members */}
+                  <Route path="/members" element={<Members />} />
+                  <Route path="/Register" element={<Register />} />
+                  <Route path="/Memberinfo" element={<MemberInfo />} />
+                  <Route path="/NewPwd" element={<NewPwd />} />
+                  <Route path="/Order" element={<Order />} />
+                  <Route path="/ForgetPwd" element={<ForgetPwd />} />
 
-                {/* ** Abby ** */}
-                {/* http://localhost:3000/members */}
-                <Route path="/members" element={<Members />} />
-                <Route path="/Register" element={<Register />} />
-                <Route path="/Memberinfo" element={<MemberInfo />} />
-                <Route path="/NewPwd" element={<NewPwd />} />
-                <Route path="/Order" element={<Order />} />
-                <Route path="/ForgetPwd" element={<ForgetPwd />} />
-
-                {/* http://localhost:3000/shopcart */}
-                {/* <Route path="/shopcart" element={<shopcart />} /> */}
-              </Routes>
-            </main>
-            <Footer />
-            <AppDrawer />
-            <Cart />
+                  {/* http://localhost:3000/shopcart */}
+                  {/* <Route path="/shopcart" element={<shopcart />} /> */}
+                </Routes>
+              </main>
+              <Footer />
+              <AppDrawer />
+              <Cart />
             </CartProvider>
           </UIProvider>
         </Container>

@@ -42,7 +42,9 @@ const SearchBar = ({ type }) => {
   }
 
   const handleSearch = () => {
-    navigate('/hotel/hotellist', { state: { destination, date, options } })
+    navigate(`/hotel/hotellist/?city=${destination}`, {
+      state: { destination, date, options },
+    })
   }
 
   return (
@@ -53,7 +55,7 @@ const SearchBar = ({ type }) => {
           <input
             list="areaList"
             type="text"
-            placeholder="您想去哪裡玩呢?"
+            placeholder="您想去哪一個城市玩呢?"
             name="area"
             id="area"
             className="headerSearchInput"
@@ -89,9 +91,9 @@ const SearchBar = ({ type }) => {
           <span
             onClick={() => setOpenDate(!openDate)}
             className="headerSearchText"
-          >{`${format(date[0].startDate, 'MM/dd/yyyy')} to ${format(
+          >{`${format(date[0].startDate, 'yyyy/MM/dd')} to ${format(
             date[0].endDate,
-            'MM/dd/yyyy'
+            'yyyy/MM/dd'
           )}`}</span>
           {openDate && (
             <DateRange
