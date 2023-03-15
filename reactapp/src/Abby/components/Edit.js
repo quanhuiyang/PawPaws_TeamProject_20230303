@@ -2,9 +2,8 @@ import { React, useEffect, useState } from 'react'
 import './Edit.scss'
 import AccountCircleIcon from '@mui/icons-material/AccountCircle'
 import { Link } from 'react-router-dom'
-import cities from './cityData/cities'
-import districts from './cityData/districts'
-import HeaderForm from '../components/HeaderForm'
+import cities from '../pages/cityData/cities'
+import districts from '../pages/cityData/districts'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import Swal from 'sweetalert2'
@@ -135,7 +134,7 @@ export default function Edit() {
     const birthday = new Date(user.birthday)
 
     let addressAll = []
-    if (user.address) {
+    if (user.address && user.address.trim()) {
       addressAll = user.address.split(',')
       handleCityChange(addressAll[0])
       handleDistrictChange(addressAll[1])
@@ -146,7 +145,7 @@ export default function Edit() {
     setEmail(user.email || '')
     setUserName(user.name || '')
     setMobile(user.mobile || '')
-    if (user.birthday !== '1899-11-29T16:00:00.000Z') {
+    if (user.birthday !== null) {
       setYear(birthday.getFullYear() || '')
       setMonth(birthday.getMonth() + 1 || '')
       setDay(birthday.getDate() || '')
@@ -305,13 +304,15 @@ export default function Edit() {
                 onChange={(e) => handleDistrictChange(e.target.value)}
                 value={district}
               >
-                {districts[city].map((d, i) => {
-                  return (
-                    <option key={i} value={d}>
-                      {d}
-                    </option>
-                  )
-                })}
+                {districts &&
+                  districts[city].length > 0 &&
+                  districts[city].map((d, i) => {
+                    return (
+                      <option key={i} value={d}>
+                        {d}
+                      </option>
+                    )
+                  })}
               </select>
               <div className="group">
                 <input

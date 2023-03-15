@@ -23,10 +23,9 @@ import ActivityDetail from './Natalie/pages/ActivityDetail'
 import ActivitySignUp from './Natalie/pages/ActivitySignUp'
 
 import Members from './pages/Members'
-import Edit from './Abby/pages/Edit'
+import Edit from './Abby/components/Edit'
 import Register from './Abby/pages/Register'
 import NewPwd from './Abby/pages/NewPwd'
-import Order from './Abby/pages/Order'
 import MemberInfo from './Abby/pages/MemberInfo'
 import ForgetPwd from './Abby/pages/ForgetPwd'
 
@@ -82,6 +81,7 @@ function App() {
                     path="/hotel/hotelbooking/"
                     element={<HotelBooking />}
                   />
+
                   <Route
                     path="/hotel/hotelpayment/"
                     element={<HotelPayment />}
@@ -90,6 +90,7 @@ function App() {
                     path="/hotel/hotelbookingsuccess/"
                     element={<HotelBookingSuccess />}
                   />
+
 
                   {/* ** Natalie ** */}
                   {/* http://localhost:3000/activity */}
@@ -110,7 +111,6 @@ function App() {
                   <Route path="/Register" element={<Register />} />
                   <Route path="/Memberinfo" element={<MemberInfo />} />
                   <Route path="/NewPwd" element={<NewPwd />} />
-                  <Route path="/Order" element={<Order />} />
                   <Route path="/ForgetPwd" element={<ForgetPwd />} />
 
                   {/* http://localhost:3000/shopcart */}
