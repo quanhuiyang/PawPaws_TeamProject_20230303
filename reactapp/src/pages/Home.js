@@ -10,7 +10,7 @@ function Home() {
       <Mainphoto />
       {/* 商城 */}
       <Htitle>
-        <h5>Pets Store</h5>
+        <h5>Pets Shop</h5>
         <p>寵物商城</p>
       </Htitle>
       <Line>
@@ -29,7 +29,7 @@ function Home() {
       {/* 旅館 */}
       <Htitle>
         <h5>Pets Hotels</h5>
-        <p>寵物旅館</p>
+        <p>寵物住宿</p>
       </Htitle>
       <Line>
         <hr />
@@ -46,7 +46,7 @@ function Home() {
 
       {/* 寵物活動 */}
       <Htitle>
-        <h5>Pets Hotels</h5>
+        <h5>Pets Activity</h5>
         <p>寵物活動</p>
       </Htitle>
       <Line>
@@ -64,7 +64,7 @@ function Home() {
 }
 
 const Htitle = styled.div`
-  margin: auto;
+  margin: 50px auto;
   text-align: center;
   background: #fff5ea;
   width: 10%;

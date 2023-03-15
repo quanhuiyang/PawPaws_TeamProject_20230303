@@ -10,14 +10,14 @@ function Slide() {
     const list = listRef.current
     const box = boxRef.current
     list.innerHTML += list.innerHTML
-
+    //500為每張照片的長，10為margin-right
     const intervalId = setInterval(() => {
       left -= 2
-      if (left === -(6 * 80 + 6 * 10)) {
+      if (left === -(6 * 500 + 6 * 10)) {
         left = 0
       }
       list.style.left = left + 'px'
-    }, 20)
+    }, 15)
 
     return () => {
       clearInterval(intervalId)
