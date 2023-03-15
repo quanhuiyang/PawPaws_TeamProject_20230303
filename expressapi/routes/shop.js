@@ -3,6 +3,8 @@ const router = express.Router()
 const db = require('../models/myconnection')
 const { v4: uuid4 } = require('uuid')
 
+
+//選取全部商品
 router.get('/', async (req, res) => {
   // console.log(process.env.DB_Password);
   // res.send('shop page');
@@ -11,9 +13,7 @@ router.get('/', async (req, res) => {
 
   // ES6 解構賦值
   // const [rows, fields] = await db.query(sql) //['result1', 'result2']
-
   // const {light} = {shade:'xxxxx', light:'xxxxxx'}
-
   // ES5
   // const dbResult = ['result1', 'result2']
   // const rows = dbResult[0]
@@ -22,6 +22,15 @@ router.get('/', async (req, res) => {
   res.json(rows)
 })
 
+//選取某項商品
+router.get('/:s_id', async (req, res) => {
+  const aid = req.params.s_id
+  const sql = 'SELECT * FROM `shop` WHERE s_id = ?'
+  const [rows] = await db.query(sql, [aid])
+  res.json(rows)
+})
+
+//產生訂單
 router.post('/checkout', async (req, res) => {
   // console.log('req', req.body.cart)
   // console.log('req', req.body.user)
@@ -70,12 +79,12 @@ router.post('/checkout', async (req, res) => {
 
     res.json({
       state: true,
-      message: `訂單成功！`,
+      message: `訂購成功！`,
     })
   } else {
     res.json({
       state: false,
-      message: `訂單失敗！`,
+      message: `訂購失敗！`,
     })
   }
 })

@@ -18,7 +18,7 @@ import useDialogModal from '../../hooks/useDialogModal'
 import ProductDetail from '../ProductDetail/index'
 import { useCart } from '../../hooks/useCart'
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder'
-import Swal from 'sweetalert2'
+
 
 export default function SingleProductDesktop({product, matches}){
 	const [isFav, setIsFav] = useState(false); // 是否按下愛心按鈕的狀態
