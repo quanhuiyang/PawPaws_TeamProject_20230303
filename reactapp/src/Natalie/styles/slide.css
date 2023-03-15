@@ -5,11 +5,11 @@
 }
 
 .box{
-    width: 439px;
+    width: 100%;
     overflow: hidden;
-    border: 1px solid #333;
+    /* border: 1px solid #333; */
     position: relative;
-    height: 80px;
+    height: 300px;
 }
 
 .box > .list{
@@ -19,37 +19,15 @@
     align-items: center;
 
 }
-.list >div {
-    width: 80px;
-    height: 80px;
+.list >div img {
+    width: 500px;
+    height: 300px;
     margin-right: 10px;
-    background: #147ecb;
+    border-radius: 10PX;
+    /* background: #147ecb; */
     display: flex;
     justify-content: center;
     align-items: center;
     color: white;
 }
 
-.list > div:nth-child(6n+1){
-    background: #ec3945;
-}
-
-.list > div:nth-child(6n+2){
-    background: #9d7ae9;
-}
-
-.list > div:nth-child(6n+3){
-    background: teal;
-}
-
-.list > div:nth-child(6n+4){
-    background: #70d5cb;
-}
-
-.list > div:nth-child(6n+5){
-    background: #cb8987;
-}
-
-.list > div:nth-child(6n+6){
-    background: #e9e27a;
-}

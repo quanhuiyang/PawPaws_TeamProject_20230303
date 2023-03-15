@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import ActivityCollectPage from '../Natalie/pages/ActivityCollectPage'
 import TestPage from '../Natalie/pages/TestPage'
-import TestPage2 from '../Natalie/pages/TestPage2'
 
 function Collection() {
   const [currentPage, setCurrentPage] = useState(0)
