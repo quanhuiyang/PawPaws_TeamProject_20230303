@@ -62,7 +62,7 @@ router.get('/detail/:activity_id', async (req, res) => {
 //用戶收藏
 router.get('/alikes/:sid', async (req, res) => {
   const output = {
-    logined: false, // 有沒有登入
+    // logined: false, // 有沒有登入
     error: '',
     likes: [],
   }
@@ -71,14 +71,16 @@ router.get('/alikes/:sid', async (req, res) => {
   if (!sid) {
     return res.json(output)
   }
-  output.logined = true //已登入
+  // output.logined = true //已登入
 
-  const sql = `SELECT alike_collection.*, activity.*, members.sid FROM alike_collection JOIN activity ON alike_collection.activity_id=activity.activity_id JOIN members ON alike_collection.sid=members.sid WHERE alike_collection.sid=1`
+  const sql = `SELECT alike_collection.*, activity.*, members.sid FROM alike_collection JOIN activity ON alike_collection.activity_id=activity.activity_id JOIN members ON alike_collection.sid=members.sid WHERE alike_collection.sid=${sid}`
 
+  //已轉成陣列而map需要陣列
   const [rows] = await db.query(sql)
-  output.likes = rows
+  //下面程式碼會轉成物件，所以map出不來
+  // output.likes = rows
 
-  res.json(output)
+  res.json(rows)
 })
 
 //添加收藏

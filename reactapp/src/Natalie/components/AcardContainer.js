@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import LocationOnRoundedIcon from '@mui/icons-material/LocationOnRounded'
 import '../styles/acard.css'
 import Heartbtn from './Heartbtn'
@@ -6,42 +6,55 @@ import '@splidejs/react-splide/css'
 import '@splidejs/react-splide/css'
 import { useNavigate } from 'react-router-dom'
 import { Link } from 'react-router-dom'
-import styled from 'styled-components'
+import { useEffect } from 'react'
 
-function AcardContainer(props) {
-  //進行解構
-  const { activity } = props
+function AcardContainer() {
+  const sid = JSON.parse(localStorage.getItem('user')).sid
+  // const sid = localStorage.getItem('user')
   //照片導向詳細頁
   const navigate = useNavigate()
   const handleClick = (aid) => {
     navigate(`/activity/detail/${aid}`)
   }
-  console.log(activity)
+  const [favorite, setFavorite] = useState([])
+  useEffect(() => {
+    getFavorite()
+  }, [])
+  const getFavorite = () => {
+    const url = `http://localhost:3000/activity/alikes/${sid}`
+    fetch(url, {
+      method: 'get',
+    })
+      .then((r) => r.json())
+      .then((rData) => {
+        setFavorite(rData)
+      })
+  }
+  console.log(favorite)
+  console.log(typeof favorite)
   return (
     <div>
-      {activity &&
-        activity.length > 0 &&
-        activity.map((item) => (
-          <div className="acard">
-            <div className="heart">
-              <Heartbtn activity={item.activity_id} />
-            </div>
-            <img
-              src={'http://localhost:3001/images/Natalie_img/' + item.picture}
-              onClick={() => handleClick(item.activity_id)}
-              alt={item.picture}
-            />
-            <div className="location">
-              <div className="city">
-                <LocationOnRoundedIcon />
-                <p>{item.location}</p>
-              </div>
-              <Link to={`/activity/detail/${item.activity_id}`}>
-                <button className="abtn">我要報名</button>
-              </Link>
-            </div>
+      {favorite.map((favorite) => (
+        <div className="acard">
+          <div className="heart">
+            <Heartbtn activity={favorite.activity_id} />
           </div>
-        ))}
+          <img
+            src={'http://localhost:3001/images/Natalie_img/' + favorite.picture}
+            onClick={() => handleClick(favorite.activity_id)}
+            alt={favorite.picture}
+          />
+          <div className="location">
+            <div className="city">
+              <LocationOnRoundedIcon />
+              <p>{favorite.location}</p>
+            </div>
+            <Link to={`/activity/detail/${favorite.activity_id}`}>
+              <button className="abtn">我要報名</button>
+            </Link>
+          </div>
+        </div>
+      ))}
     </div>
   )
 }
