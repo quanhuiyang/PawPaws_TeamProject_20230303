@@ -18,7 +18,7 @@ import useDialogModal from '../../hooks/useDialogModal'
 import ProductDetail from '../ProductDetail/index'
 import { useCart } from '../../hooks/useCart'
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder'
-
+import Swal from 'sweetalert2'
 
 export default function SingleProductDesktop({product, matches}){
 	const [isFav, setIsFav] = useState(false); // 是否按下愛心按鈕的狀態
@@ -28,10 +28,14 @@ export default function SingleProductDesktop({product, matches}){
       setIsFav(JSON.parse(storedFav));
     }
   }, [product.id]);
-	const handleFavButtonClick = () => {
+	
+  const handleFavButtonClick = () => {
     const newFav = !isFav;
     setIsFav(newFav);
     localStorage.setItem(`product-${product.id}-fav`, JSON.stringify(newFav));
+    if (!newFav) {
+      localStorage.removeItem(`product-${product.id}-fav`);
+    }
   };
 		// const handleFavButtonClick = () => {
   //   setIsFav(!isFav);
