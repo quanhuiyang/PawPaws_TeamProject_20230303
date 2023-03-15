@@ -1,13 +1,37 @@
-import React from 'react'
+import React, { useRef, useState } from 'react'
+import { useParams, useSearchParams } from 'react-router-dom'
 import styled from 'styled-components'
+import AcardFilter from './AcardFilter'
 
 function SearchBox() {
+  const [keyword, setKeyword] = useState('')
+  const [activities, setActivities] = useState([])
+  const handleSubmit = (event) => {
+    event.preventDefault()
+    const url = `http://localhost:3000/activity/search?q=${keyword}`
+    fetch(url)
+      .then((r) => r.json())
+      .then((rData) => {
+        console.log(rData)
+        setKeyword(keyword)
+        setActivities(rData)
+      })
+  }
   return (
-    <SearchBtn>
-      <input type="text" placeholder="位置" />
-      <input type="text" placeholder="時間" />
-      <input type="text" placeholder="搜尋活動" />
-    </SearchBtn>
+    <>
+      <form onSubmit={handleSubmit}>
+        <SearchBtn>
+          <input
+            type="text"
+            value={keyword}
+            onChange={(event) => setKeyword(event.target.value)}
+            placeholder="輸入城市"
+          />
+          <button type="submit">搜尋</button>
+        </SearchBtn>
+      </form>
+      <AcardFilter activities={activities} />
+    </>
   )
 }
 

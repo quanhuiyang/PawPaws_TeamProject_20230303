@@ -1,12 +1,12 @@
-import React from 'react'
-import AcardContainer from '../components/AcardContainer'
+import React, { useState } from 'react'
+import styled from 'styled-components'
+import CollectCard from '../components/CollectCard'
 
 function ActivityCollectPage() {
   return (
-    <>
-      {/* <AcardContainer /> */}
-      <div>ActivityCollectPage</div>
-    </>
+    <div>
+      <CollectCard />
+    </div>
   )
 }
 

@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 function Collectbtn() {
   const [isClicked, setIsClicked] = useState(false)
-  const handleClick = () => {
+  const handleClick = async () => {
     setIsClicked(!isClicked)
   }
   return (

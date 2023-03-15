@@ -1,13 +1,16 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import Mainphoto from '../Elena/components/mainphoto/Mainphoto'
+import Slide from '../Natalie/components/Slide'
 
 function Home() {
   return (
     <>
       <Mainphoto />
+      {/* 商城 */}
       <Htitle>
-        <h5>Pets Store</h5>
+        <h5>Pets Shop</h5>
         <p>寵物商城</p>
       </Htitle>
       <Line>
@@ -19,14 +22,49 @@ function Home() {
       </Picture>
 
       <Btn>
+        <Link to={`/shop`}></Link>
         <button>看更多>></button>
+      </Btn>
+
+      {/* 旅館 */}
+      <Htitle>
+        <h5>Pets Hotels</h5>
+        <p>寵物住宿</p>
+      </Htitle>
+      <Line>
+        <hr />
+      </Line>
+
+      <Picture>
+        <img src="../images/Natalie_img/hp01.jpg" alt="AC06" />
+      </Picture>
+
+      <Btn>
+        <Link to={`/hotel`}></Link>
+        <button>看更多>></button>
+      </Btn>
+
+      {/* 寵物活動 */}
+      <Htitle>
+        <h5>Pets Activity</h5>
+        <p>寵物活動</p>
+      </Htitle>
+      <Line>
+        <hr />
+      </Line>
+
+      <Slide />
+      <Btn>
+        <Link to={`/activity`}>
+          <button>看更多>></button>
+        </Link>
       </Btn>
     </>
   )
 }
 
 const Htitle = styled.div`
-  margin: auto;
+  margin: 50px auto;
   text-align: center;
   background: #fff5ea;
   width: 10%;

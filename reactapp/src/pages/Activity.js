@@ -4,6 +4,7 @@ import Arrowbtn from '../Natalie/components/Arrowbtn'
 import ImageSlider from '../Natalie/components/ImageSlider'
 import Acard from '../Natalie/components/Acard'
 import SearchBox from '../Natalie/components/SearchBox'
+import AcardFilterTime from '../Natalie/components/AcardFilterTime'
 
 function Activity() {
   const [activity, setActivity] = useState([])
@@ -63,9 +64,9 @@ function Activity() {
         <Arrowbtn name={cardtitle[0]} />
         <Acard activity={activity} />
         <Arrowbtn name={cardtitle[1]} />
-        <Acard activity={activity} />
-        <Arrowbtn name={cardtitle[2]} />
-        <Acard activity={activity} />
+        <AcardFilterTime activity={activity} />
+        {/* <Arrowbtn name={cardtitle[2]} />
+        <Acard activity={activity} /> */}
       </div>
     </div>
   )

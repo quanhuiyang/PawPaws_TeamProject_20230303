@@ -1,7 +1,11 @@
 import React from 'react'
-
+import Slide from '../components/Slide'
 function TestPage() {
-  return <div>TestPage</div>
+  return (
+    <>
+      <div>hi</div>
+    </>
+  )
 }
 
 export default TestPage
