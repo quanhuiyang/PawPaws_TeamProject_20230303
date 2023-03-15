@@ -23,8 +23,8 @@ router.get('/:city', async (req, res) => {
 
 // GET
 // 讀出某一個id hotel的資料
-// http://localhost:3000/hotel/h_id
-router.get('/:h_id', async (req, res) => {
+// http://localhost:3000/hotel/byid/:h_id
+router.get('/byid/:h_id', async (req, res) => {
   const hotelId = req.params.h_id
   const sql = 'SELECT * FROM hotel WHERE `h_id`=?'
   const [rows] = await db.query(sql, [hotelId])
