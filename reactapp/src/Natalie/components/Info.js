@@ -3,10 +3,22 @@ import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 import Collectbtn from './Collectbtn'
 import 'datejs'
+import { useNavigate } from 'react-router-dom'
 
 function Info(props) {
   const { activityDetail } = props
   const item = activityDetail[0]
+
+  //未登入
+  const navigate = useNavigate()
+  const sid = JSON.parse(localStorage.getItem('user'))?.sid
+  const handleClick = () => {
+    if (!sid) {
+      alert('請先登入')
+      navigate('/members')
+      return
+    }
+  }
   return (
     <Infocard>
       <Infoheader>
@@ -19,7 +31,7 @@ function Info(props) {
           {new Date(item.deadline).toString('yyyy-MM-dd')}
         </p>
         <p>{item.place}</p>
-        <Btn>
+        <Btn onClick={handleClick}>
           <Link to={`/activity/signup/${item.activity_id}`}>
             <button>我要報名</button>
           </Link>
