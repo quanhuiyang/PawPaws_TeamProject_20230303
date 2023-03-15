@@ -140,7 +140,7 @@ function HotelDetail() {
               <p className="hotelDesc">{hotel.h_info}</p>
             </div>
             <div className="hotelDetailsPrice">
-              <h1>美好的9晚住宿</h1>
+              <h1>美好的1晚住宿</h1>
               <span>
                 位在{hotel.h_city}中心, 此飯店地理位置評分為{hotel.h_rating}
                 顆星！

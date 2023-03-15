@@ -14,6 +14,8 @@ import Mainphoto from './Elena/components/mainphoto/Mainphoto'
 import HotelDetail from './Elena/pages/hotelDetail/HotelDetail'
 import HotelList from './Elena/pages/hotelList/HotelList'
 import HotelBooking from './Elena/pages/hotelBooking/HotelBooking'
+import HotelPayment from './Elena/pages/hotelPayment/HotelPayment'
+import HotelBookingSuccess from './Elena/pages/hotelBookingSuccess/HotelBookingSuccess'
 
 import Activity from './pages/Activity'
 import Collection from './pages/Collection'
@@ -79,6 +81,16 @@ function App() {
                     path="/hotel/hotelbooking/"
                     element={<HotelBooking />}
                   />
+
+                  <Route
+                    path="/hotel/hotelpayment/"
+                    element={<HotelPayment />}
+                  />
+                  <Route
+                    path="/hotel/hotelbookingsuccess/"
+                    element={<HotelBookingSuccess />}
+                  />
+
 
                   {/* ** Natalie ** */}
                   {/* http://localhost:3000/activity */}
