@@ -61,7 +61,7 @@ function HotelDetail() {
     getHotel()
   }, [])
   const getHotel = () => {
-    const url = `http://localhost:3000/hotel/${id}`
+    const url = `http://localhost:3000/hotel/byid/${id}`
     fetch(url, {
       method: 'get',
     })
