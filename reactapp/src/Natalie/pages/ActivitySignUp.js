@@ -169,11 +169,11 @@ function ActivitySignUp() {
                   <p>同會員資料</p>
                 </Checkbox>
                 <Btn>
-                  {/* <Link to={`/activity/detail/${activity_id}`}> */}
-                  <button type="submit" onClick={handleClick}>
-                    送出
-                  </button>
-                  {/* </Link> */}
+                  <Link to={`/activity`}>
+                    <button type="submit" onClick={handleClick}>
+                      送出
+                    </button>
+                  </Link>
                 </Btn>
               </form>
             </Form>
