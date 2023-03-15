@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import Mainphoto from '../Elena/components/mainphoto/Mainphoto'
-import Acard from '../Natalie/components/Acard'
+import Slide from '../Natalie/components/Slide'
 
 function Home() {
   return (
@@ -53,6 +53,7 @@ function Home() {
         <hr />
       </Line>
 
+      <Slide />
       <Btn>
         <Link to={`/activity`}>
           <button>看更多>></button>
