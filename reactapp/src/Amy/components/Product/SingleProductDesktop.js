@@ -11,14 +11,31 @@ import { Stack } from '@mui/material'
 import FavoriteIcon from '@mui/icons-material/Favorite'
 import ShareIcon from '@mui/icons-material/Share'
 import FitScreenIcon from '@mui/icons-material/FitScreen'
-import { useState } from 'react'
+import  { useState, useEffect } from 'react'
 import PetsIcon from '@mui/icons-material/Pets'
 import { shades } from '../../../styles/theme'
 import useDialogModal from '../../hooks/useDialogModal'
 import ProductDetail from '../ProductDetail/index'
 import { useCart } from '../../hooks/useCart'
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder'
+
 
 export default function SingleProductDesktop({product, matches}){
+	const [isFav, setIsFav] = useState(false); // 是否按下愛心按鈕的狀態
+	useEffect(() => {
+    const storedFav = localStorage.getItem(`product-${product.id}-fav`);
+    if (storedFav !== null) {
+      setIsFav(JSON.parse(storedFav));
+    }
+  }, [product.id]);
+	const handleFavButtonClick = () => {
+    const newFav = !isFav;
+    setIsFav(newFav);
+    localStorage.setItem(`product-${product.id}-fav`, JSON.stringify(newFav));
+  };
+		// const handleFavButtonClick = () => {
+  //   setIsFav(!isFav);
+  // };
 
 	const[ showOptions, setShowOptions ] = useState(false);
 
@@ -43,20 +60,23 @@ export default function SingleProductDesktop({product, matches}){
 	const handleMouseLeave = ()=>{
 		setShowOptions(false);
 	}
+
+
+
 return(
 <>
-<Product onMouseEnter= {handleMouseEnter}  onMouseLeave= {handleMouseLeave} >
-	<ProductImage src={product.image}/>
-	<ProductFavButton isFav={0} sx={{bgcolor: "#fff9f2"}}>
-		<FavoriteIcon />
-	</ProductFavButton>
-	{ showOptions && (
-		<ProductAddToCart 
-		onClick= {addToCart}
-		show= {showOptions} 
-		variant="contained"
-		startIcon={<PetsIcon sx={{ color: shades.black[500] }} />}
-		>
+<Product onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+        <ProductImage src={product.image} />
+        <ProductFavButton isFav={isFav} sx={{ bgcolor: "#fff9f2" }} onClick={handleFavButtonClick}>
+          {isFav ? <FavoriteIcon sx={{ color: '#ff816d' }} /> : <FavoriteBorderIcon />}
+        </ProductFavButton>
+        {showOptions && (
+          <ProductAddToCart
+            onClick={addToCart}
+            show={showOptions}
+            variant="contained"
+            startIcon={<PetsIcon sx={{ color: shades.black[500] }} />}
+          >
 		{/* 加入購物車 */}
 		{addToCartText}
 	</ProductAddToCart>
@@ -77,3 +97,4 @@ return(
 </>
 );
 }
+
