@@ -22,15 +22,8 @@ function ActivitySignUp() {
         setActivitySign(rData)
       })
   }
-  //送到後端
-  const [auser, setAuser] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    address: '',
-    activity_id: `${activity_id}`,
-    sid: JSON.parse(localStorage.getItem('user')).sid,
-  })
+  // user內容
+  const user = JSON.parse(localStorage.getItem('user'))
 
   const handleUserChange = (e) => {
     setAuser({ ...auser, [e.target.name]: e.target.value })
@@ -68,6 +61,41 @@ function ActivitySignUp() {
     })
   }
 
+  //打勾
+  const handleCheckbox = (e) => {
+    const isChecked = e.target.checked
+
+    // 如果打勾，則更新值
+    if (isChecked) {
+      setAuser({
+        ...auser,
+        name: user.name || '',
+        email: user.email || '',
+        phone: user.mobile || '',
+        address: user.address || '',
+      })
+    } else {
+      // 如果沒有打勾，則清空值
+      setAuser({
+        ...auser,
+        name: '',
+        email: '',
+        phone: '',
+        address: '',
+      })
+    }
+  }
+
+  //送到後端
+  const [auser, setAuser] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    address: '',
+    activity_id: `${activity_id}`,
+    sid: user.sid,
+  })
+
   return (
     <div>
       {activitySign &&
@@ -94,7 +122,6 @@ function ActivitySignUp() {
                   value={item.activity_id}
                   onChange={handleUserChange}
                 />
-
                 <InputBox>
                   <p>姓名</p>
                   <input
@@ -105,7 +132,6 @@ function ActivitySignUp() {
                     onChange={handleUserChange}
                   />
                 </InputBox>
-
                 <InputBox>
                   <p>信箱</p>
                   <input
@@ -138,6 +164,10 @@ function ActivitySignUp() {
                     onChange={handleUserChange}
                   />
                 </InputBox>
+                <Checkbox>
+                  <input type="checkbox" onChange={handleCheckbox} />
+                  <p>同會員資料</p>
+                </Checkbox>
                 <Btn>
                   {/* <Link to={`/activity/detail/${activity_id}`}> */}
                   <button type="submit" onClick={handleClick}>
@@ -216,6 +246,22 @@ const InputBox = styled.div`
   h6 {
     margin-right: 1rem;
     margin-bottom: 1rem;
+  }
+`
+const Checkbox = styled.div`
+  color: #8dd9ce;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  input {
+    flex-grow: 0;
+    margin: 5px;
+    padding: 0;
+    width: 10px;
+  }
+  p {
+    margin: 0;
   }
 `
 export default ActivitySignUp
