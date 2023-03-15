@@ -82,15 +82,9 @@ export default function PaymentForm() {
       <div
         style={{ display: 'flex', justifyContent: 'flex-end', width: '100%' }}
       >
-        <button className="hotelPaymentBtn displayRight" onClick={handleSubmit}>
+        <button className="hotelPaymentBtn" onClick={handleSubmit}>
           確認付款
         </button>
-        {/* <button
-          className="hotelPaymentBtn displayRight"
-          onClick={() => navigate(`/hotel/hotelbookingsuccess`)}
-        >
-          確認付款
-        </button> */}
       </div>
     </div>
   )

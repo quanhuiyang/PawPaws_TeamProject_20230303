@@ -170,7 +170,7 @@ export default function HotelBookingInfo() {
   return (
     <div className="hotelBookingInfoContainer">
       <div className="hotelBookingMember">
-        <memberForm onSubmit={(e) => handleSubmit(e)}>
+        <form onSubmit={(e) => handleSubmit(e)}>
           <div className="form-area-edit">
             <div className="form-body">
               <div className="profileArea">
@@ -178,25 +178,6 @@ export default function HotelBookingInfo() {
                   <AccountCircleIcon />
                   {email}
                 </div>
-                {/* <button
-                  type="button"
-                  className="member-button logoutBtn"
-                  onClick={() => {
-                    localStorage.removeItem('token')
-                    localStorage.removeItem('user')
-                    localStorage.removeItem('email')
-                    localStorage.removeItem('googleAuth')
-                    navigate('/members')
-                    Swal.fire({
-                      icon: 'success',
-                      title: '登出成功!',
-                      showConfirmButton: false,
-                      timer: 1500,
-                    })
-                  }}
-                >
-                  會員登出
-                </button> */}
               </div>
 
               <div className="group">
@@ -208,7 +189,11 @@ export default function HotelBookingInfo() {
                   placeholder="請輸入姓名"
                   onChange={(e) => setUserName(e.target.value)}
                 />
-
+                {/** 
+            <div className="group">
+               <input type="text" name="email" id="email" placeholder="請輸入email" required />
+            </div>
+            */}
                 <div className="group">
                   <select
                     value={year}
@@ -292,13 +277,15 @@ export default function HotelBookingInfo() {
                     onChange={(e) => handleDistrictChange(e.target.value)}
                     value={district}
                   >
-                    {districts[city].map((d, i) => {
-                      return (
-                        <option key={i} value={d}>
-                          {d}
-                        </option>
-                      )
-                    })}
+                    {districts &&
+                      districts[city].length > 0 &&
+                      districts[city].map((d, i) => {
+                        return (
+                          <option key={i} value={d}>
+                            {d}
+                          </option>
+                        )
+                      })}
                   </select>
                   <div className="group">
                     <input
@@ -311,22 +298,8 @@ export default function HotelBookingInfo() {
                 </div>
               </div>
             </div>
-            <div className="form-submit-area">
-              <button
-                type="button"
-                onClick={() => {
-                  showUserOriginalInfo(true)
-                }}
-                className="cancel-btn twoBtns"
-              >
-                取消
-              </button>
-              <button type="submit" className="join-btn twoBtns">
-                儲存修改
-              </button>
-            </div>
           </div>
-        </memberForm>
+        </form>
       </div>
       <div className="hotelBookingHotel">
         <hotelForm>
