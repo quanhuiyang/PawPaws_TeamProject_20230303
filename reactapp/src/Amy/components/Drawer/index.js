@@ -42,7 +42,7 @@ export default function AppDrawer() {
               navigate('hotel')
             }}
           >
-            <ListItemText align="center">寵物旅館</ListItemText>
+            <ListItemText align="center">寵物飯店</ListItemText>
           </ListItemButton>
           <ListItemButton
             onClick={() => {

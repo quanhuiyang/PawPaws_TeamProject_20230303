@@ -163,7 +163,7 @@ export const products = [
         description: "貓咪最愛第一名！",
         description2: "鬆軟細緻，一口接一口的鮮甜海味",
         image: "/images/Amy_img/products/13.kazzzmahi-01-247x247.jpg",
-        image2: "/images/Amy_img/products/13.鬼頭刀產品圖-2-510x510.jpg"
+        image2: "/images/Amy_img/products/13.kazzzmahi-2-510x510.jpg"
     },
     {
         id: 14,
@@ -175,7 +175,7 @@ export const products = [
         description: "濃郁肉香，貓狗都愛！",
         description2: "豐富鐵質，補血補元氣",
         image: "/images/Amy_img/products/14.kazzzbeef-01-247x247.jpg",
-        image2: "/images/Amy_img/products/14.牛肉片產品圖-2-510x510.jpg"
+        image2: "/images/Amy_img/products/14.kazzzbeef-2-510x510.jpg"
     },
     {
         id: 15,
@@ -200,8 +200,8 @@ export const products = [
         description: "營養吸收UP，毛孩活力UP！ 適合幼犬貓",
         description2: "6種日本天野酵素 + 黃金奇異果萃取物",
         description3: "✔木瓜 ✔鳳梨 ✔蛋白 ✔脂肪 ✔纖維 ✔澱粉 6種酵素",
-        image: "/images/Amy_img/products/16.酵素_產品圖1-247x247.jpg",
-        image2: "/images/Amy_img/products/16.酵素_產品圖3-510x510.jpg"
+        image: "/images/Amy_img/products/16.energe_tag-1-247x247.jpg",
+        image2: "/images/Amy_img/products/16.energe_tag-3-510x510.jpg"
     },
     {
         id: 17,
@@ -225,8 +225,8 @@ export const products = [
         description: "🏆 最強『耐重 20kg』",
         description2: "超穩不下滑，胖胖貓、暴衝貓都不怕！",
         description3: "✔ 三種款式自由搭配  ✔ 強力吸盤，不傷牆面 ✔ 小坪數、租屋族必備",
-        image: "/images/Amy_img/products/18.首圖-247x247.jpg",
-        image2: "/images/Amy_img/products/18.三款-510x510.jpg"
+        image: "/images/Amy_img/products/18.jump-247x247.jpg",
+        image2: "/images/Amy_img/products/18.jump-510x510.jpg"
     },
     {
         id: 19,

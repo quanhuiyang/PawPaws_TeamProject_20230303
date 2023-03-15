@@ -14,11 +14,12 @@ import CloseIcon from '@mui/icons-material/Close'
 import styled from '@emotion/styled'
 import { useTheme } from '@mui/material/styles'
 import { Product, ProductImage } from '../../../styles/Product/index'
-import Count from '../Count/index'
 import FacebookIcon from '@mui/icons-material/Facebook'
 import TwitterIcon from '@mui/icons-material/Twitter'
 import InstagramIcon from '@mui/icons-material/Instagram'
 import FavoriteIcon from '@mui/icons-material/Favorite'
+import { useCart } from '../../hooks/useCart'
+import PetsIcon from '@mui/icons-material/Pets'
 
 function SlideTransition(props) {
   return <Slide direction="down" {...props} />
@@ -40,12 +41,22 @@ export default function ProductDetail({ open, onClose, product }) {
   const theme = useTheme()
   const matches = useMediaQuery(theme.breakpoints.down('md'))
 
+  //const { addToCart, addToCartText } = useCart(product);
+  const { addItem, isInCart, removeItem } = useCart()
+
+  const addToCart = () => {
+    return isInCart(product.id)
+      ? removeItem(product.id)
+      : addItem({ ...product, quantity: 1 })
+  }
+  const addToCartText = isInCart(product.id) ? '移除' : '加購物車'
+
   return (
     <Dialog
       TransitionComponent={SlideTransition}
       variant="permanent"
       open={open}
-      fullScreen
+      // fullScreen
     >
       <DialogTitle sx={{ background: shades.secondary[500] }}>
         <Box
@@ -53,7 +64,8 @@ export default function ProductDetail({ open, onClose, product }) {
           alignItems="center"
           justifyContent={'space-between'}
         >
-          {/* 商品標題 */}　{product.name}
+          {/* 商品標題 */}
+          {product.name}
           <IconButton onClick={onClose}>
             <CloseIcon />
           </IconButton>
@@ -93,8 +105,21 @@ export default function ProductDetail({ open, onClose, product }) {
             >
               ${product.price}
             </Typography>
-            <Count />
-            <Button variant="contained">加購物車</Button>
+          </Box>
+          <Box
+            sx={{ mt: 4 }}
+            display="flex"
+            alignItems="center"
+            justifyContent="space-between"
+          >
+            {/* <Count /> */}
+            <Button
+              variant="contained"
+              onClick={addToCart}
+              startIcon={<PetsIcon sx={{ color: shades.black[500] }} />}
+            >
+              加入購物車
+            </Button>
           </Box>
           <Box
             display="flex"
