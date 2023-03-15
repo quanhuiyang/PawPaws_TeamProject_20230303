@@ -6,6 +6,7 @@ import TestPage from '../Natalie/pages/TestPage'
 function Collection() {
   const [currentPage, setCurrentPage] = useState(0)
   return (
+
     <div>
       <CollectTitle>
         {/* 切換分頁按鈕 */}
@@ -16,6 +17,7 @@ function Collection() {
         {currentPage === 0 && <ActivityCollectPage />}
         {currentPage === 1 && <TestPage />}
       </CollectTitle>
+
     </div>
   )
 }

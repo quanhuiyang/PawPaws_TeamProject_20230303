@@ -90,10 +90,40 @@ function Members() {
       })
     }
   }
+
+  // 用於記錄錯誤訊息之用
+
+  const [fieldErrors, setFieldErrors] = useState({
+    userEmail: null,
+    userPassword: null,
+  })
+
+  const handleInvaild = (e) => {
+    e.preventDefault()
+
+    const { name } = e.target
+    let errorMessage = null
+
+    if (name === 'userEmail') {
+      if (e.target.validity.typeMismatch) {
+        errorMessage = '請輸入有效的 Email'
+      } else if (e.target.validity.valueMissing) {
+        errorMessage = '請輸入 Email'
+      }
+    } else if (name === 'userPassword' && e.target.validity.valueMissing) {
+      errorMessage = '請輸入密碼'
+    }
+
+    setFieldErrors({
+      ...fieldErrors,
+      [name]: errorMessage,
+    })
+  }
+
   return (
     <>
       <div className="container abby">
-        <form onSubmit={handleSignin}>
+        <form onSubmit={handleSignin} onInvalid={handleInvaild}>
           <div className="form-area">
             <div className="form-header">
               <Link to="/Register">
@@ -124,6 +154,9 @@ function Members() {
                     onChange={handleInputData}
                     required
                   />
+                  {fieldErrors.userEmail && (
+                    <span className="error">{fieldErrors.userEmail}</span>
+                  )}{' '}
                 </div>
                 <div className="group">
                   <input
@@ -134,6 +167,9 @@ function Members() {
                     onChange={handleInputData}
                     required
                   />
+                  {fieldErrors.userPassword && (
+                    <span className="error">{fieldErrors.userPassword}</span>
+                  )}
                 </div>
                 <div className="forgetpwd-btn">
                   <Link to="/forgetPwd">忘記密碼</Link>

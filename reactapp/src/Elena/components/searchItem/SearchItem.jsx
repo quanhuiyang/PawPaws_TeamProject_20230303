@@ -5,8 +5,8 @@ function SearchItem(props) {
   const navigate = useNavigate()
   //進行解構
   const { hotel } = props
-  console.log(props) //{hotel:{h_id,h_....}}
-  console.log(hotel) //{"h_id":1,"h_name":"台北君悅酒店","h_tel":"227201234","h_zipcode":110,"h_city":"台北市","h_dist":"信義區","h_address":"松壽路2號","h_url":"https://www.hyatt.com/zh-HK/hotel/taiwan/grand-hyatt-taipei/taigh","h_info":"帶著愛犬一起去旅遊，享受國際五星級酒店住宿體驗，特別提供多樣狗狗專屬服務，包含專用飲水及餐碗、專屬睡墊等貼心用品、豐富早餐、及Cheers戶外空間享用免費飲料等多項優惠。","h_distance":"100","h_photos":null,"h_rating":9.8,"h_cheapestPrice":9800}
+  // console.log(props) //{hotel:{h_id,h_....}}
+  // console.log(hotel) //{"h_id":1,"h_name":"台北君悅酒店","h_tel":"227201234","h_zipcode":110,"h_city":"台北市","h_dist":"信義區","h_address":"松壽路2號","h_url":"https://www.hyatt.com/zh-HK/hotel/taiwan/grand-hyatt-taipei/taigh","h_info":"帶著愛犬一起去旅遊，享受國際五星級酒店住宿體驗，特別提供多樣狗狗專屬服務，包含專用飲水及餐碗、專屬睡墊等貼心用品、豐富早餐、及Cheers戶外空間享用免費飲料等多項優惠。","h_distance":"100","h_photos":null,"h_rating":9.8,"h_cheapestPrice":9800}
   return (
     <div className="searchItem">
       <img

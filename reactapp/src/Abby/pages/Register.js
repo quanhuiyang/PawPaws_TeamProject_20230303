@@ -152,6 +152,7 @@ function Register() {
                     placeholder="請輸入email"
                     required
                   />
+                   <span className="error">{fieldErrors.email}</span>
                   {/* <span className="error">{fieldErrors.password}</span> */}
                 </div>
                 <div className="group-password">

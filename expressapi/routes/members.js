@@ -39,8 +39,6 @@ router.post('/login', async function (req, res) {
 
     output.token = token
 
-    console.log('token', token)
-
     res.json(output)
   }
   // req.session.userId = result.sid
@@ -69,15 +67,14 @@ router.post('/checklogin', async (req, res, next) => {
 
 //會員註冊
 router.post('/register', async (req, res, next) => {
-  console.log('req', req.body.email)
-  console.log('req', req.body.password)
-  const { email, password, name } = req.body
-  const sql = `INSERT INTO members ( email, password, name ) VALUES (?,?,?)`
+
+  const { email, password } = req.body
+  const sql = `INSERT INTO members ( email, password ) VALUES (?,?)`
+
   const checkSql = `SELECT * FROM members WHERE email = ?`
   try {
     const check = await db.query(checkSql, [email])
-    // console.log('check', check)
-    console.log('check[0]', check[0].length)
+
     if (check[0].length > 0) {
       res.json({
         state: false,
@@ -85,7 +82,7 @@ router.post('/register', async (req, res, next) => {
         user: check[0],
       })
     } else {
-      const create = await db.query(sql, [email, password, name])
+      const create = await db.query(sql, [email, password])
       if (create) {
         res.json({
           state: true,
@@ -103,14 +100,18 @@ router.post('/register', async (req, res, next) => {
   }
 })
 
+//會員編輯頁面
 router.put('/update', async function (req, res) {
-  console.log('req', req.body.birthday)
-
   const output = {}
 
   const sql =
     'UPDATE `members` SET `name`=? ,`birthday`=?,`address`=?, `mobile`=? WHERE `email`=?'
-  const { name, birthday, address, email, mobile } = req.body
+  let { name, birthday, address, email, mobile } = req.body
+
+  if (address === ',,') {
+    address = ''
+  }
+
   const [result] = await db.query(sql, [name, birthday, address, mobile, email])
 
   output.result = result
@@ -134,10 +135,8 @@ router.put('/update', async function (req, res) {
   // req.session.userId = result.sid
 })
 
-// forget password token
+//忘記密碼 token
 router.post('/forgetPassword', async function (req, res) {
-  console.log('req', req.body.email)
-
   const sql = 'SELECT * FROM members WHERE email=?'
   const [rows] = await db.query(sql, [req.body.email])
   if (rows.length < 1) {
@@ -147,7 +146,6 @@ router.post('/forgetPassword', async function (req, res) {
     return res.json(output)
   } else {
     const row = rows[0]
-    console.log('row', row)
 
     const output = {}
     output.error = ''
@@ -169,14 +167,12 @@ router.post('/forgetPassword', async function (req, res) {
 
     output.token = token
 
-    console.log('token', token)
-
     res.json(output)
   }
   // req.session.userId = result.sid
 })
 
-// change password
+// 修改新密碼
 
 router.post('/changePassword', async function (req, res) {
   console.log('changePassword req', req.body.data)
@@ -188,12 +184,10 @@ router.post('/changePassword', async function (req, res) {
       if (error) {
         console.log({ error })
       }
-      console.log(decoded)
 
       const email = decoded.account
 
       if (req.body.data?.oldPassword) {
-        console.log('oldPassword', req.body.data.oldPassword)
         const sql =
           'UPDATE `members` SET `password`=? WHERE `email`=? AND `password`=?'
         const { newPassword } = req.body.data
@@ -244,4 +238,15 @@ router.post('/changePassword', async function (req, res) {
     }
   )
 })
+
+router.get('/getActivityData/:sid', async (req, res) => {
+  const sid = req.params.sid
+
+  const sql = 'SELECT * FROM `participants` WHERE sid=?;'
+  const [rows] = await db.query(sql, [sid])
+
+  return res.json(rows)
+})
+
+// http://localhost:3000/members/getActivityData/2
 module.exports = router
