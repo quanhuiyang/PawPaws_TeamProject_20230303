@@ -16,8 +16,10 @@ import { useCart } from '../../hooks/useCart'
 import PetsIcon from '@mui/icons-material/Pets'
 import axios from 'axios'
 
+
 export default function Cart() {
   const {
+    // cart,
     setShowCart,
     showCart,
   } = useUIContext()
@@ -50,13 +52,12 @@ export default function Cart() {
       obj
     )
 
-
     if (result.data) {
       clearCart()
-      alert(`訂購成功！您的訂單編號為${result.data.orderNumber}。`)
+      alert(`訂購成功！可至會員中心查看訂單：）`)
       setShowCart(false)
     } else {
-      alert('訂購失敗！')
+      alert('訂購失敗！請先登入')
     }
   }
 
