@@ -16,7 +16,7 @@ import { shades } from '../../../styles/theme'
 import useDialogModal from '../../hooks/useDialogModal'
 import ProductDetail from '../ProductDetail/index'
 import { useCart } from '../../hooks/useCart'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder'
 
 export default function SingleProduct({ product, matches }) {
@@ -30,11 +30,22 @@ export default function SingleProduct({ product, matches }) {
   // const toggleFav = () => {
   //   setIsFav(!isFav)
   // }
-	const toggleFav = () => {
-    const newValue = !isFav
-    setIsFav(newValue)
-    window.localStorage.setItem(`fav-${product.id}`, JSON.stringify(newValue))
-  }
+  const toggleFav = () => {
+    const newValue = !isFav;
+    if (newValue === false) {
+      window.localStorage.removeItem(`fav-${product.id}`);
+    }
+    setIsFav(newValue);
+    window.localStorage.setItem(`fav-${product.id}`, JSON.stringify(newValue));
+    if (newValue === false) {
+      const keysToRemove = Object.keys(window.localStorage).filter((key) =>
+        key.startsWith("fav-")
+      );
+      keysToRemove.forEach((key) => {
+        window.localStorage.removeItem(key);
+      });
+    }
+  };
 
   const [
     ProductDetailDialog,

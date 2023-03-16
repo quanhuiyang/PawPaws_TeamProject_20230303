@@ -1,41 +1,41 @@
 import React from 'react'
-import Table from '../Table'
+import TableShop from '../../../Amy/components/Cart/TableShop'
 
 function ShopOrder({ sid }) {
   const orderList3 = [
     {
-      id: 1,
-      customerName: 'John Doe',
-      orderDate: '2023-03-10',
-      product: 'apple10',
-      orderStatus: 'Processing',
-      sid: 1111,
+      s_order_id: 167895101280613,
+      s_order_status: '訂單成立',
+      s_order_date: '2023-03-16',
+      s_order_total: '760',
+      s_order_pay: '貨到付款',
+      s_order_ship: '尚未出貨',
     },
     {
-      id: 2,
-      customerName: 'Jane Smith',
-      orderDate: '2023-03-11',
-      product: 'apple11',
-      orderStatus: 'Shipped',
-      sid: 1085,
+      s_order_id: 167895036394036,
+      s_order_status: '訂單成立',
+      s_order_date: '2023-03-16',
+      s_order_total: '1000',
+      s_order_pay: '貨到付款',
+      s_order_ship: '尚未出貨',
     },
     {
-      id: 3,
-      customerName: 'Bob Johnson',
-      orderDate: '2023-03-12',
-      product: 'apple12',
-      orderStatus: 'Delivered',
-      sid: 1085,
+      s_order_id: 167895036376720,
+      s_order_status: '訂單成立',
+      s_order_date: '2023-03-16',
+      s_order_total: '1000',
+      s_order_pay: '貨到付款',
+      s_order_ship: '尚未出貨',
     },
   ]
 
   return (
     <>
-      <Table
+      <TableShop
         orderList={orderList3}
-        header={['id', 'customerName', 'orderDate', 'product', 'orderStatus']}
+        header={['s_order_id', 's_order_status', 's_order_date', 's_order_total','s_order_pay','s_order_ship']}
         sid={sid}
-      ></Table>
+      ></TableShop>
     </>
   )
 }

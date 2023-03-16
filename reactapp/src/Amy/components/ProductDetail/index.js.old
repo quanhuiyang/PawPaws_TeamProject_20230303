@@ -45,13 +45,11 @@ export default function ProductDetail({ open, onClose, product }) {
   const { addItem, isInCart, removeItem } = useCart()
 
   const addToCart = () => {
-    if (!isInCart(product.id)) {
-      addItem({ ...product, quantity: 1 });
-      alert('加入成功！');
-    }
-  }
+    isInCart(product.id) ? removeItem(product.id) : addItem({ ...product, quantity: 1 });
+    alert('加入成功！');
+}
   // const addToCartText = isInCart(product.id) ? '移除' : '加購物車'
-  const buttonText = isInCart(product.id) ? '已加入購物車' : '加入購物車';
+
   return (
     <Dialog
       TransitionComponent={SlideTransition}
@@ -119,7 +117,7 @@ export default function ProductDetail({ open, onClose, product }) {
               onClick={addToCart}
               startIcon={<PetsIcon sx={{ color: shades.black[500] }} />}
             >
-              {buttonText}
+              加入購物車
             </Button>
           </Box>
           <Box
