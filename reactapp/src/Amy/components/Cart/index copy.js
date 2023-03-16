@@ -18,6 +18,7 @@ import axios from 'axios'
 
 export default function Cart() {
   const {
+    // cart,
     setShowCart,
     showCart,
   } = useUIContext()
@@ -29,7 +30,7 @@ export default function Cart() {
   const matches = useMediaQuery(theme.breakpoints.down('md'))
 
   //移除商品
-  const { removeItem, clearCart } = useCart()
+  const { removeItem } = useCart()
   const removeItemWithConfirmation = (itemId) => {
     const confirmed = window.confirm('確定移除此項商品？')
     if (confirmed) {
@@ -37,7 +38,7 @@ export default function Cart() {
     }
   }
 
-  // console.log(cart)
+  console.log(cart)
 
   async function handleCheckout() {
     const obj = {
@@ -51,13 +52,11 @@ export default function Cart() {
     )
 
 
-    if (result.data) {
-      clearCart()
-      alert(`訂購成功！您的訂單編號為${result.data.orderNumber}。`)
-      setShowCart(false)
-    } else {
-      alert('訂購失敗！')
-    }
+		if(result.state){
+			// true 
+      //TODO 清空/ 轉向
+		}
+    console.log('result', result.state)
   }
 
   const cartContent = cart.map((item) => (
